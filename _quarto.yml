@@ -6,16 +6,16 @@ project:
 
 website:
   page-navigation: true
-  title: "STA 313"
-  description: "Homepage for STA 313 - Advanced Data Visualization at Duke University, Spring 2023."
+  title: "AM 1"
+  description: "Homepage "
   site-url: "http://vizdata.org/"
 
-  repo-url: https://github.com/vizdata-s23/vizdata-s23
+  repo-url: https://github.com/jasminskoenig/AM1-populism.git
   repo-actions: [edit, issue]
 
   open-graph: true
   twitter-card:
-    creator: "@minebocek"
+    creator: "@jasminskoenig"
     image: "images/twitter-card.png"
 
   sidebar:
