@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: _docs
   resources:
     - sta313-s23-syllabus.pdf
 
