@@ -8,7 +8,6 @@ website:
   page-navigation: true
   title: "AM 1"
   description: "Homepage "
-  site-url: "http://vizdata.org/"
 
   repo-url: https://github.com/jasminskoenig/AM1-populism.git
   repo-actions: [edit, issue]
