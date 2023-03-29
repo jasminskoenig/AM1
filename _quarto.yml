@@ -6,7 +6,7 @@ project:
 
 website:
   page-navigation: true
-  title: "AM 1"
+  title: "AM 1 <br> Populismusforschung"
   description: "Homepage "
 
   repo-url: https://github.com/jasminskoenig/AM1-populism.git
@@ -18,79 +18,55 @@ website:
     image: "images/twitter-card.png"
 
   sidebar:
-    background: "#f1de67" # Arylide Yellow
+    background: "#CEB7BB" # Thistle
     logo: "images/logo.png"
     pinned: true
     align: center
     tools:
       - icon: github
-        href: https://github.com/vizdata-s23/vizdata-s23
-        text: "GitHub organization"
-      - icon: code-square
-        href: https://cmgr.oit.duke.edu/containers
-        text: "RStudio Containers"
+        href: https://github.com/jasminskoenig/AM1-populism.git
+        text: "GitHub Website"
       - icon: person-fill
-        text: "Sakai"
-        menu:
-          - text: Announcements
-            url: https://sakai.duke.edu/portal/directtool/e0d406f3-bd6a-41fe-a2e9-18bfecebeed0/
-          - text: Zoom meetings
-            url: https://sakai.duke.edu/portal/directtool/c3f055cb-2cdc-4527-a88e-b75d1162784c/
-          - text: Gradebook
-            url: https://sakai.duke.edu/portal/directtool/3ec6ed6c-6bc7-4758-917b-431e0b5b39c7/
+        href: https://www.jasminskoenig.com
+        text: "Jasmin Homepage"
+      - icon: camera-video-fill
+        href: https://uni-hamburg.zoom.us/j/65339868930?pwd=TWNFZm9TcFN5cHdTZDhweTZuQWFXdz09
+        text: "Zoom"
  
     style: docked
     search: true
     collapse-level: 1
     contents:
-      - section: "Course information"
+      - section: "Kursinformationen"
         contents:
           - href: course-overview.qmd
-            text: Overview
-          - href: course-syllabus.qmd
-            text: Syllabus
-          - href: course-support.qmd
-            text: Support
-          - href: course-team.qmd
-            text: Teaching team
+            text: Allgemeines
           - href: index.qmd
-            text: Schedule
+            text: Syllabus
           - href: course-links.qmd
-            text: Useful links
+            text: Hilfreiche Links
           - href: course-faq.qmd
             text: FAQ
-      - section: "Computing"
+          - href: sprechstunde.qmd
+            text: Sprechstunde
+      - section: "Credits"
         contents:
-          - href: computing/computing-access.qmd
-            text: Access
-          - href: computing/computing-troubleshooting.qmd
-            text: Troubleshooting
-          - href: computing/computing-cheatsheets.qmd
-            text: Cheatsheets
-      - section: "Projects"
-        contents:
-          - href: project/project-1.qmd
-          - href: project/project-2.qmd
-          - href: project/project-tips-resources.qmd
-            text: Tips + resources
-      - section: "HW"
-        contents:
-          - href: https://github.com/vizdata-s23/hw-01#homework-01
-            text: HW 01
-          - href: https://github.com/vizdata-s23/hw-02#homework-02
-            text: HW 02
+          - href: studienleistung.qmd
+            text: Studienleistung
+          - href: hausarbeit.qmd
+            text: Hausarbeit
 
   page-footer:
-    right: "This page is built with 💛 and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2023, Mine Çetinkaya-Rundel"
-    background: "#f1de67" # Arylide Yellow
+    right: "This page is built on a template by <a href='https://mine-cr.com/'>Mine Çetinkaya-Rundel</a> with 💛 and [Quarto](https://quarto.org/)."
+    left: "&copy; Copyright 2023, Jasmin Sarah König"
+    background: "#CEB7BB" # Rose Quartz
 
 format:
   html:
     theme:
       light: [cosmo, style/sta313.scss]
       dark: [cosmo, style/sta313.scss, style/dark.scss]
-    linkcolor: "#866fa3" # Glossy Grape
+    linkcolor: "#689295" # Blue (Munsell)
     toc: true
     code-copy: true
     code-overflow: wrap

@@ -1,13 +1,15 @@
 ---
-title: "STA 313: Advanced Data Visualization"
-subtitle: "Dr. Mine Çetinkaya-Rundel"
+title: "AM1: Vergleichende Empirische Populismusforschung"
+subtitle: "Jasmin Sarah König"
 execute:
   freeze: false
 editor_options: 
   chunk_output_type: console
 ---
 
-This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.
+Auf dieser Seite findet ihr den Kursplan für das Semester. Alle Lektüren, Fragenkataloge und die Slides der Präsentationen sind hier verlinkt.
+
+Bitte nehmt in der Syllabus das **verpflichtende Blockseminar** am 07. Juli zur Kenntnis!
 
 ```{r}
 #| echo: false
@@ -18,7 +20,7 @@ library(googlesheets4)
 library(gt)
 library(tidyverse)
 gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/1Qj2rcIqFGwOosr9Yiyo-MaeFSZ7KOYNn8Ph1kebgDuY/edit?usp=sharing")
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1Zq8Fhhlln_1RBXzqshvEdoFXcmt3LldwmTnxanbLEjI/edit?usp=sharing")
 ```
 
 <div>
@@ -28,22 +30,23 @@ d <- read_sheet("https://docs.google.com/spreadsheets/d/1Qj2rcIqFGwOosr9Yiyo-Mae
 
 d |>
   mutate(
-    date = as.Date(date)
+    Datum = as.Date(Datum)
   ) |>
+  select(-Notes, -Lecturenotes) |> 
   gt() |>
-  fmt_date(date, date_style = 31) |>
-  sub_missing(columns = c(week, what, topic, prepare, due), missing_text = "") |>
+  fmt_date(Datum, date_style = 31) |>
+  sub_missing(columns = c(Woche, Uhrzeit, Thema, Lektüre, Raum, Fragen), missing_text = "") |>
   cols_align(
     align = "center", 
-    columns = c(week)
+    columns = c(Woche)
     ) |>
   cols_align(
     align = "right", 
-    columns = c(date)
+    columns = c(Datum, Raum)
     ) |>
   cols_align(
     align = "left", 
-    columns = c(what, topic, prepare, due)
+    columns = c(Thema, Lektüre, Fragen)
     ) |>
   tab_style(
     style = cell_borders(
@@ -52,21 +55,22 @@ d |>
       style = "solid"
     ),
     locations = cells_body(
-      columns = c(date, topic, prepare)
+      columns = c(Raum, Datum, Thema, Lektüre)
     )
   ) |>
   fmt_markdown(
-    columns = c(topic, prepare, due)
+    columns = c(Raum, Thema, Lektüre)
   ) |>
   cols_width(
-    week ~ px(40),
-    date ~ px(100), 
-    due ~ px(100),
-    topic ~ px(300)
-  ) |>
-  cols_label(
-    what = ""
-  )
+    Woche ~ px(40),
+    Datum ~ px(100),
+    Uhrzeit ~ px(180),
+    Raum ~ px(130),
+    Thema ~ px(500),
+    Lektüre ~ px(500)) # only needed for a column that is nto supposed to have a title on website#|>
+  # cols_label(
+  #   what = ""
+  # )
 ```
 
 </div>

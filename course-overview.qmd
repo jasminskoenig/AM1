@@ -1,22 +1,37 @@
 ---
-title: "Course overview"
+title: "Kursinformationen"
 ---
 
-This is the homepage for STA 313 - Advanced Data Visualization taught by [Dr. Mine Çetinkaya-Rundel](http://mine-cr.com/) in Spring 2023 at Duke University. All course materials will be posted on this site.
+Dies ist die Homepage des Aufbaumodul 1 Seminars *Vergleichende Empirische Populismusforschung* von [Jasmin Sarah König](https://www.jasminskoenig.com/) im Sommersemester 2023. Alle Kursunterlagen werden auf dieser Seite gepostet.
 
-You can find the course syllabus [here](/syllabus) and the course schedule [here](/).
+## Termine
 
-## Class meetings
+Alle Details in der [Syllabus](/index).
 
-| Meeting | Location                       | Time                        |
-|---------|--------------------------------|-----------------------------|
-| Lecture | Old Chemistry 116.             | Tue & Thur 12:00 - 13:15 pm |
-| Lab 01  | Perkins Link 087 (Classroom 3) | Wed 1:45 - 3:00 pm          |
-| Lab 02  | Perkins Link 087 (Classroom 3) | Wed 3:30 - 4:45 pm          |
+-   Obligatorische Teilnahme am Blockseminar
+-   Erste Sitzung zur Besprechung des Seminar am 04.04.2023 via Zoom
+-   Sitzungen am 11., 08., und 25.04.2023 entfallen und werden durch verpflichtendes Blockseminar ersetzt
 
-<br>
+## Überblick
 
-## **License**
+Kaum eine politische Krise wird nicht mit Populismus in Verbindung gebracht, durch ihn erklärt oder als Treiber von Populismus eingeordnet. Nicht immer bauen die Argumente dabei auf guter wissenschaftlicher Arbeit auf. Populismus ist als Begriff umstritten und wird oftmals unterschiedlich verstanden. In dem Kurs wollen wir theoretisch verstehen, wie Populismus zu definieren ist, in welchem Spannungsfeld Populismus zur Demokratie steht, welche Effekte populistische Regierungen haben und welche Erklärungen es für das Erstarken populistischer Parteien gibt.
 
-[![Creative Commons License](https://licensebuttons.net/l/by-sa/4.0/88x31.png){alt="Creative Commons License"}](https://creativecommons.org/licenses/by-sa/4.0/)\
-This online work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/). Visit [here](https://github.com/dukestatsciintrods/blob/master/LICENSE.md) for more information about the license.
+Der Kurs fokussiert dabei auch auf Research Design. Wire setzen wir uns mit theoretischen Konzepten rund um das Thema Populismus auseinander und diskutieren deren Annahmen und daraus resultierende Hypothesen. Im Anschluss diskutieren wir wie verschiedene Autoren diese Hypothesen empirisch überprüft haben. Welche Datensätze wurden genutzt, welche Methoden wurden angewendet und welche Annahmen liegen diesen Methoden zu Grunde?
+
+Durch das konkrete Thema, versucht der Kurs die Anwendnung quantitativer empirischer Methoden leicht verständlich und mit Anwendungsbeispielen zu vermitteln. Um die theoretischen Konzepte besser zu verstehen und ein besser Verständnis für die Entwicklung einer Forschungsfrage zu bekommen, wenden wir im Kurs in Gruppen kleine Fallstudien zu den Konzepten, Debatten zwischen den verschiedenen Konzepten und angeleitet erste Datensätze auswerten. Der Kurs setzt anstatt auf die wöchentlichen Referate auf viele, verschiedene interaktive Elemente, die auf der aktiven Mitarbeit der Studierenden basieren.
+
+## Lernziel
+
+-   Überblick über die empirische Forschung zu Populismus
+-   Herleiten von Hypothesen
+-   Entwurf eines Research Designs zu Populismus
+-   Lesen von einfachen quantitativen Analysen (bsp. Regressionstabellen)
+-   Kenntnis über verschiedene Datensätze im Bereich Populismus
+
+## Vorgehen
+
+-   Diskussionen
+-   Gruppenarbeiten zu Case Studies & mindestens einer strukturierten Debatte
+-   Anwendungsübungen zur Analyse von Datensätzen
+-   Social Media Analysen
+-   Entwicklung einer eigenen Forschungsfrage und Vorschlägen wie diese überprüft werden können
