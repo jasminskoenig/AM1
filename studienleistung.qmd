@@ -2,11 +2,11 @@
 title: "Studienleistung"
 ---
 
-Um für den Kurs die Credits angerechnet zu bekommen, muss eine Studienleistung abgelegt werden. Das Seminar verzichtet auf wöchentliche Referate, dafür werden 3 kleine Studienleistungen erwartet.
+Um für den Kurs die Credits angerechnet zu bekommen, muss eine Studienleistung abgelegt werden. Das Seminar verzichtet auf wöchentliche Referate, dafür werden 3 kleine Studienleistungen erwartet: Lesefragen, Social Media Analyse und das Blockseminar.
 
 ## Wöchentliche Fragen
 
-Jede Woche sind einige Fragen zur Lektüre zu beantworten. Diese sind immer ab Dienstag in der \[Syllabus\](/index.qmd). Die Fragen sind bis zum **Montag** vor dem Seminar um **12 Uhr mittags** zu beantworten. Orientiert euch an einem Maximum von 5 Sätzen. Wenn die Frage für euch in weniger Worten zu beantworten ist, macht das gerne!
+Jede Woche sind einige Fragen zur Lektüre zu beantworten. Diese sind immer ab Dienstag in der [Syllabus](/index). Die Fragen sind bis zum **Montag** vor dem Seminar um **12 Uhr mittags** zu beantworten. Orientiert euch an einem Maximum von 5 Sätzen. Wenn die Frage für euch in weniger Worten zu beantworten ist, macht das gerne!
 
 Die Fragen dürfen pro Person in jeweils zwei Wochen verpasst werden.
 

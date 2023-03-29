@@ -9,7 +9,7 @@ editor_options:
 
 Auf dieser Seite findet ihr den Kursplan für das Semester. Alle Lektüren, Fragenkataloge und die Slides der Präsentationen sind hier verlinkt.
 
-Bitte nehmt in der Syllabus das **verpflichtende Blockseminar** am 07. Juli zur Kenntnis!
+Bitte nehmt in der Syllabus das **verpflichtende Blockseminar** am 30. Juni zur Kenntnis!
 
 ```{r}
 #| echo: false

@@ -1,8 +1,7 @@
 project:
   type: website
   output-dir: _docs
-  resources:
-    - sta313-s23-syllabus.pdf
+
 
 website:
   page-navigation: true
@@ -57,15 +56,15 @@ website:
             text: Hausarbeit
 
   page-footer:
-    right: "This page is built on a template by <a href='https://mine-cr.com/'>Mine Çetinkaya-Rundel</a> with 💛 and [Quarto](https://quarto.org/)."
+    right: "This page is built with a template by <a href='https://mine-cr.com/'>Mine Çetinkaya-Rundel</a> with 💛 and [Quarto](https://quarto.org/)."
     left: "&copy; Copyright 2023, Jasmin Sarah König"
     background: "#CEB7BB" # Rose Quartz
 
 format:
   html:
     theme:
-      light: [cosmo, style/sta313.scss]
-      dark: [cosmo, style/sta313.scss, style/dark.scss]
+      light: [cosmo, style/am1.scss]
+      dark: [cosmo, style/am1.scss, style/dark.scss]
     linkcolor: "#689295" # Blue (Munsell)
     toc: true
     code-copy: true
