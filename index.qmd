@@ -42,7 +42,7 @@ d |>
     ) |>
   cols_align(
     align = "right", 
-    columns = c(Datum, Raum)
+    columns = c(Datum, Raum, Uhrzeit)
     ) |>
   cols_align(
     align = "left", 
@@ -55,19 +55,20 @@ d |>
       style = "solid"
     ),
     locations = cells_body(
-      columns = c(Raum, Datum, Thema, Lektüre)
+      columns = c(Raum, Datum, Uhrzeit, Thema, Lektüre)
     )
   ) |>
   fmt_markdown(
-    columns = c(Raum, Thema, Lektüre)
+    columns = c(Raum, Thema, Lektüre, Fragen)
   ) |>
   cols_width(
-    Woche ~ px(40),
-    Datum ~ px(100),
-    Uhrzeit ~ px(180),
-    Raum ~ px(130),
-    Thema ~ px(500),
-    Lektüre ~ px(500)) # only needed for a column that is nto supposed to have a title on website#|>
+    Woche ~ px(70),
+    Datum ~ px(85),
+    Uhrzeit ~ px(80),
+    Raum ~ px(100),
+    Thema ~ px(200),
+    Lektüre ~ px(250),
+    Fragen ~ px(200)) # only needed for a column that is nto supposed to have a title on website#|>
   # cols_label(
   #   what = ""
   # )
