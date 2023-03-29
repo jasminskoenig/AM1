@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+
+<title>AM 1 - Welcome to STA 313</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<meta property="og:title" content="AM 1 - Welcome to STA 313">
+<meta property="og:description" content="Lecture 0">
+<meta property="og:site-name" content="AM 1">
+<meta name="twitter:title" content="AM 1 - Welcome to STA 313">
+<meta name="twitter:description" content="Lecture 0">
+<meta name="twitter:image" content="../../images/twitter-card.png">
+<meta name="twitter:creator" content="@jasminskoenig">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Welcome to STA 313</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/vizdata-s23/vizdata-s23" title="GitHub organization" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="sidebar-tool px-1"><i class="bi bi-code-square"></i></a>
+    <a href="" title="Sakai" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/directtool/e0d406f3-bd6a-41fe-a2e9-18bfecebeed0/">
+          Announcements
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/directtool/c3f055cb-2cdc-4527-a88e-b75d1162784c/">
+          Zoom meetings
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/directtool/3ec6ed6c-6bc7-4758-917b-431e0b5b39c7/">
+          Gradebook
+          </a>
+        </li>
+    </ul>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Kursinformationen</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-overview.html" class="sidebar-item-text sidebar-link">Allgemeines</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-links.html" class="sidebar-item-text sidebar-link">Hilfreiche Links</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-faq.html" class="sidebar-item-text sidebar-link">FAQ</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Unterstützung</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-support.html" class="sidebar-item-text sidebar-link">Studienleistung</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/project-tips-resources.html" class="sidebar-item-text sidebar-link">Hausarbeit</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Credits</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-support.html" class="sidebar-item-text sidebar-link">Studienleistung</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/project-tips-resources.html" class="sidebar-item-text sidebar-link">Hausarbeit</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#course-details" id="toc-course-details" class="nav-link active" data-scroll-target="#course-details">Course Details</a>
+  <ul class="collapse">
+  <li><a href="#teaching-team" id="toc-teaching-team" class="nav-link" data-scroll-target="#teaching-team">Teaching team</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
+  <li><a href="#timetable" id="toc-timetable" class="nav-link" data-scroll-target="#timetable">Timetable</a></li>
+  <li><a href="#themes-what-why-and-how" id="toc-themes-what-why-and-how" class="nav-link" data-scroll-target="#themes-what-why-and-how">Themes: what, why, and how</a></li>
+  </ul></li>
+  <li><a href="#but-first" id="toc-but-first" class="nav-link" data-scroll-target="#but-first">But first…</a>
+  <ul class="collapse">
+  <li><a href="#show-and-tell" id="toc-show-and-tell" class="nav-link" data-scroll-target="#show-and-tell">Show and tell</a></li>
+  </ul></li>
+  <li><a href="#course-components" id="toc-course-components" class="nav-link" data-scroll-target="#course-components">Course components</a>
+  <ul class="collapse">
+  <li><a href="#course-website" id="toc-course-website" class="nav-link" data-scroll-target="#course-website">Course website</a></li>
+  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
+  <li><a href="#labs" id="toc-labs" class="nav-link" data-scroll-target="#labs">Labs</a></li>
+  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#diversity-and-inclusion" id="toc-diversity-and-inclusion" class="nav-link" data-scroll-target="#diversity-and-inclusion">Diversity and inclusion</a></li>
+  <li><a href="#accessibility" id="toc-accessibility" class="nav-link" data-scroll-target="#accessibility">Accessibility</a></li>
+  </ul></li>
+  <li><a href="#assessments" id="toc-assessments" class="nav-link" data-scroll-target="#assessments">Assessments</a>
+  <ul class="collapse">
+  <li><a href="#attendance-participation-5" id="toc-attendance-participation-5" class="nav-link" data-scroll-target="#attendance-participation-5">Attendance + participation (5%)</a></li>
+  <li><a href="#reading-quizzes-10" id="toc-reading-quizzes-10" class="nav-link" data-scroll-target="#reading-quizzes-10">Reading quizzes (10%)</a></li>
+  <li><a href="#homework-assignments-45" id="toc-homework-assignments-45" class="nav-link" data-scroll-target="#homework-assignments-45">Homework assignments (45%)</a></li>
+  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects">Projects</a></li>
+  <li><a href="#teams" id="toc-teams" class="nav-link" data-scroll-target="#teams">Teams</a></li>
+  <li><a href="#project-1-15" id="toc-project-1-15" class="nav-link" data-scroll-target="#project-1-15">Project 1 (15%)</a></li>
+  <li><a href="#project-2-25" id="toc-project-2-25" class="nav-link" data-scroll-target="#project-2-25">Project 2 (25%)</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#community-participation" id="toc-community-participation" class="nav-link" data-scroll-target="#community-participation">Community participation</a></li>
+  </ul></li>
+  <li><a href="#course-policies" id="toc-course-policies" class="nav-link" data-scroll-target="#course-policies">Course policies</a>
+  <ul class="collapse">
+  <li><a href="#covid-policies" id="toc-covid-policies" class="nav-link" data-scroll-target="#covid-policies">COVID policies</a></li>
+  <li><a href="#late-work-policy" id="toc-late-work-policy" class="nav-link" data-scroll-target="#late-work-policy">Late work policy</a></li>
+  <li><a href="#collaboration-policy" id="toc-collaboration-policy" class="nav-link" data-scroll-target="#collaboration-policy">Collaboration policy</a></li>
+  <li><a href="#sharing-reusing-code-policy" id="toc-sharing-reusing-code-policy" class="nav-link" data-scroll-target="#sharing-reusing-code-policy">Sharing / reusing code policy</a></li>
+  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic integrity</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  </ul></li>
+  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support">Support</a>
+  <ul class="collapse">
+  <li><a href="#office-hours" id="toc-office-hours" class="nav-link" data-scroll-target="#office-hours">Office hours</a></li>
+  <li><a href="#wellness" id="toc-wellness" class="nav-link" data-scroll-target="#wellness">Wellness</a></li>
+  </ul></li>
+  <li><a href="#course-tools" id="toc-course-tools" class="nav-link" data-scroll-target="#course-tools">Course Tools</a>
+  <ul class="collapse">
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a></li>
+  <li><a href="#username-advice" id="toc-username-advice" class="nav-link" data-scroll-target="#username-advice">Username advice</a></li>
+  <li><a href="#slack" id="toc-slack" class="nav-link" data-scroll-target="#slack">Slack</a></li>
+  <li><a href="#before-the-weekend" id="toc-before-the-weekend" class="nav-link" data-scroll-target="#before-the-weekend">Before the weekend</a></li>
+  </ul></li>
+  <li><a href="#grammar-of-graphics" id="toc-grammar-of-graphics" class="nav-link" data-scroll-target="#grammar-of-graphics">Grammar of graphics</a>
+  <ul class="collapse">
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data visualization</a></li>
+  <li><a href="#ggplot2-tidyverse" id="toc-ggplot2-tidyverse" class="nav-link" data-scroll-target="#ggplot2-tidyverse">ggplot2 ∈ tidyverse</a></li>
+  <li><a href="#grammar-of-graphics-1" id="toc-grammar-of-graphics-1" class="nav-link" data-scroll-target="#grammar-of-graphics-1">Grammar of Graphics</a></li>
+  <li><a href="#hello-ggplot2" id="toc-hello-ggplot2" class="nav-link" data-scroll-target="#hello-ggplot2">Hello ggplot2!</a></li>
+  <li><a href="#data-palmer-penguins" id="toc-data-palmer-penguins" class="nav-link" data-scroll-target="#data-palmer-penguins">Data: Palmer Penguins</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal">Goal</a></li>
+  <li><a href="#an-improved-goal" id="toc-an-improved-goal" class="nav-link" data-scroll-target="#an-improved-goal">An improved goal</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jasminskoenig/AM1-populism.git/edit/main/slides/00/00-welcome-grammar.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jasminskoenig/AM1-populism.git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Welcome to STA 313</h1>
+<p class="subtitle lead">Lecture 0</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    Dr.&nbsp;Mine Çetinkaya-Rundel 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Duke University <br> STA 313 - Spring 2023
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="course-details" class="level1">
+<h1>Course Details</h1>
+<section id="teaching-team" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-team">Teaching team</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="instructor" class="level3">
+<h3 class="anchored" data-anchor-id="instructor">Instructor</h3>
+<p>Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+<p>Old Chem 213</p>
+<p><a href="mailto:mc301@duke.edu">mc301@duke.edu</a></p>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="teaching-assistants" class="level3">
+<h3 class="anchored" data-anchor-id="teaching-assistants">Teaching assistants</h3>
+<ul>
+<li>Jackie Du - Head TA</li>
+<li>Lorenzo Mauri - Lab 1 TA</li>
+<li>Sam Rosen - Lab 2 TA</li>
+<li>Evan Dragich - Lecture TA</li>
+<li>Holly Cui - TA</li>
+</ul>
+</section>
+</div>
+</div>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+</section>
+</section>
+<section id="timetable" class="level2">
+<h2 class="anchored" data-anchor-id="timetable">Timetable</h2>
+<ul>
+<li>Lectures (weekly)
+<ul>
+<li>Tuesdays, 12:00 - 1:15 pm - Old Chem 116</li>
+<li>Thursdays, 12:00 - 1:15 pm - Old Chem 116</li>
+</ul></li>
+<li>Labs (weekly)
+<ul>
+<li>Lab 1: Wednesdays, 1:45 - 3:00 pm - Link Classroom 3</li>
+<li>Lab 2: Wednesdays, 3:30 - 4:45 pm - Link Classroom 3</li>
+</ul></li>
+</ul>
+</section>
+<section id="themes-what-why-and-how" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="themes-what-why-and-how">Themes: what, why, and how</h2>
+<ul>
+<li><strong>What:</strong> the plot
+<ul>
+<li>Specific types of visualizations for a particular purpose (e.g., maps for spatial data, Sankey diagrams for proportions, etc.)</li>
+<li>Tooling to produce them (e.g., specific R packages)</li>
+</ul></li>
+</ul>
+<div class="incremental">
+<ul>
+<li><strong>How:</strong> the process
+<ul>
+<li>Start with a design (sketch + pseudo code)</li>
+<li>Pre-process data (e.g., wrangle, reshape, join, etc.)</li>
+<li>Map data to aesthetics</li>
+<li>Make visual encoding decisions t(e.g., address accessibility concerns)</li>
+<li>Post-process for visual appeal and annotation</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><strong>Why:</strong> the theory
+<ul>
+<li>Tie together “how” and “what” through the grammar of graphics</li>
+</ul></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="but-first" class="level1">
+<h1>But first…</h1>
+<section id="show-and-tell" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="show-and-tell">Show and tell</h2>
+<div class="task">
+<ul>
+<li><p>Form a small group (2-4 people) with people sitting around you</p></li>
+<li><p>First, introduce yourselves to each other – name (and proper pronunciation of name), year, major, where are you from, etc.</p></li>
+<li><p>Start with the bad graphs – Share your examples of “bad” graphs and why you think they’re bad.</p></li>
+<li><p>Then, share your good graphs – Same deal, share your examples of “good” graphs and why you think they’re good.</p></li>
+<li><p>Finally, choose the <strong>one</strong> plot from your group that you think is most striking, either because it’s bad or because it’s good, and have one team member share the graph on #general in Slack.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="course-components" class="level1">
+<h1>Course components</h1>
+<section id="course-website" class="level2">
+<h2 class="anchored" data-anchor-id="course-website">Course website</h2>
+<div class="large" style="text-align: center;">
+<p><a href="https://www.vizdata.org/">vizdata.org</a></p>
+</div>
+<div class="hand" style="text-align: center;">
+<p>aka “the one link to rule them all”</p>
+</div>
+<div style="text-align: center;">
+<iframe width="1000" height="400" src="https://www.vizdata.org/" frameborder="1" style="background:white;"></iframe>
+</div>
+</section>
+<section id="lectures" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="lectures">Lectures</h2>
+<ul>
+<li><p>In person</p></li>
+<li><p>Attendance is required (as long as you’re healthy!)</p></li>
+<li><p>A little bit of everything:</p>
+<ul>
+<li>Traditional lecture</li>
+<li>Live coding + demos</li>
+<li>Short exercises + solution discussion</li>
+</ul></li>
+<li><p>Recordings will be posted after class – to be used for review + make-up if you can’t make it to class due to health reasons, they’re not an alternative to class attendance</p></li>
+</ul>
+</section>
+<section id="labs" class="level2">
+<h2 class="anchored" data-anchor-id="labs">Labs</h2>
+<ul>
+<li><p>Attendance is required (as long as you’re healthy!)</p></li>
+<li><p>Opportunity to work on course assignments with TA support</p></li>
+<li><p>Opportunity to work with teammates on projects</p></li>
+</ul>
+</section>
+<section id="announcements" class="level2">
+<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
+<ul>
+<li><p>Posted on Sakai (Announcements tool) and sent via email, be sure to check both regularly</p></li>
+<li><p>I’ll assume that you’ve read an announcement by the next “business” day</p></li>
+</ul>
+</section>
+<section id="diversity-and-inclusion" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="diversity-and-inclusion">Diversity and inclusion</h2>
+<p>It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.</p>
+<ul>
+<li><p>If you have a name that differs from those that appear in your official Duke records, please let me know!</p></li>
+<li><p>Please let me know your preferred pronouns.</p></li>
+<li><p>If you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.</p></li>
+<li><p>I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.</p></li>
+</ul>
+</section>
+<section id="accessibility" class="level2">
+<h2 class="anchored" data-anchor-id="accessibility">Accessibility</h2>
+<ul>
+<li><p>The <a href="https://access.duke.edu/students">Student Disability Access Office (SDAO)</a> is available to ensure that students are able to engage with their courses and related assignments.</p></li>
+<li><p>I am committed to making all course materials accessible and I’m always learning how to do this better. If any course component is not accessible to you in any way, please don’t hesitate to let me know.</p></li>
+</ul>
+</section>
+</section>
+<section id="assessments" class="level1">
+<h1>Assessments</h1>
+<section id="attendance-participation-5" class="level2">
+<h2 class="anchored" data-anchor-id="attendance-participation-5">Attendance + participation (5%)</h2>
+<ul>
+<li><p>Required throughout the semester in lecture and lab</p></li>
+<li><p>Students who attend at least 80% of the lectures and participate regularly in lecture and/or other course venues (lab + Slack) will receive full credit for this portion of their grade</p></li>
+<li><p>Participation in labs as well as on Slack will also count towards this component</p></li>
+</ul>
+</section>
+<section id="reading-quizzes-10" class="level2">
+<h2 class="anchored" data-anchor-id="reading-quizzes-10">Reading quizzes (10%)</h2>
+<ul>
+<li>Online, individual</li>
+<li>Cover reading that is due since the previous quiz and up to and including the deadline for the given quiz</li>
+<li>Due by 12 pm ET (beginning of class) on the indicated day on the course schedule</li>
+<li><strong>Lowest dropped</strong></li>
+</ul>
+</section>
+<section id="homework-assignments-45" class="level2">
+<h2 class="anchored" data-anchor-id="homework-assignments-45">Homework assignments (45%)</h2>
+<ul>
+<li>Submitted on GitHub, individual</li>
+<li>Some lab sessions allocated to working on homework / getting feedback from TAs</li>
+<li>Due by 12 pm ET (beginning of class) on the indicated day on the course schedule</li>
+<li><strong>Lowest dropped</strong></li>
+</ul>
+</section>
+<section id="projects" class="level2">
+<h2 class="anchored" data-anchor-id="projects">Projects</h2>
+<ul>
+<li>Submitted on GitHub, team-based</li>
+<li>Interim deadlines, peer review on content, peer evaluation for team contribution</li>
+<li>Some lab sessions allocated to working on projects, doing peer review, getting feedback from TAs</li>
+</ul>
+</section>
+<section id="teams" class="level2">
+<h2 class="anchored" data-anchor-id="teams">Teams</h2>
+<ul>
+<li>Team assignments
+<ul>
+<li>In class exercises and projects</li>
+<li>Assigned different teams for each project</li>
+<li>Peer evaluation during teamwork and after completion</li>
+</ul></li>
+<li>Expectations and roles
+<ul>
+<li>Everyone is expected to contribute equal <em>effort</em></li>
+<li>Everyone is expected to understand <em>all</em> code turned in</li>
+<li>Individual contribution evaluated by peer evaluation, commits, etc.</li>
+</ul></li>
+</ul>
+</section>
+<section id="project-1-15" class="level2">
+<h2 class="anchored" data-anchor-id="project-1-15">Project 1 (15%)</h2>
+<ul>
+<li><p>Same/similar data, different results</p></li>
+<li><p>Presentation and write-up</p></li>
+<li><p>Wrapped up before midterms grades are due</p></li>
+</ul>
+</section>
+<section id="project-2-25" class="level2">
+<h2 class="anchored" data-anchor-id="project-2-25">Project 2 (25%)</h2>
+<ul>
+<li><p>The world is your oyster! (and more details TBA)</p></li>
+<li><p>New team</p></li>
+<li><p>Presentation and write-up</p></li>
+<li><p>Wrapped up on the final exam date</p></li>
+</ul>
+</section>
+<section id="grading" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="grading">Grading</h2>
+<p>This course is assessed 100% on your coursework (there is no exam). We will be assessing you based on the following assignments,</p>
+<table class="table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 12%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Assignment</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">n</th>
+<th>Due</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Attendance + participation</td>
+<td style="text-align: left;">Individual</td>
+<td style="text-align: left;">5%</td>
+<td style="text-align: left;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reading quizzes</td>
+<td style="text-align: left;">Individual</td>
+<td style="text-align: left;">10%</td>
+<td style="text-align: left;">7</td>
+<td>~ Every other week</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Homeworks</td>
+<td style="text-align: left;">Individual</td>
+<td style="text-align: left;">45%</td>
+<td style="text-align: left;">6</td>
+<td>~ Every other week</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Project 1</td>
+<td style="text-align: left;">Team</td>
+<td style="text-align: left;">15%</td>
+<td style="text-align: left;">1</td>
+<td>~ Week 6 + earlier interim deadlines</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Project 2</td>
+<td style="text-align: left;">Team</td>
+<td style="text-align: left;">25%</td>
+<td style="text-align: left;">1</td>
+<td>~ Finals week + earlier interim deadlines</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="community-participation" class="level2">
+<h2 class="anchored" data-anchor-id="community-participation">Community participation</h2>
+<p>This is not required but highly recommended!</p>
+<ul>
+<li><a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a> - New dataset every week for wrangling, visualizing, modeling</li>
+<li>I encourage you to participate, or at a minimum, browse others’ contributions on Twitter or Mastodon with <a href="https://twitter.com/search?q=%23TidyTuesday&amp;src=typed_query&amp;f=live">#TidyTuesday</a></li>
+</ul>
+</section>
+</section>
+<section id="course-policies" class="level1">
+<h1>Course policies</h1>
+<section id="covid-policies" class="level2">
+<h2 class="anchored" data-anchor-id="covid-policies">COVID policies</h2>
+<ul>
+<li><p>Wear a mask if the university requires</p></li>
+<li><p>Stay home if you’re sick and follow guidance</p></li>
+<li><p>Read and follow university guidance</p></li>
+</ul>
+</section>
+<section id="late-work-policy" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="late-work-policy">Late work policy</h2>
+<ul>
+<li><p>Reading quizzes: Late submissions not accepted</p></li>
+<li><p>Homework assignments:</p>
+<ul>
+<li>Late, but same day (before midnight): -10% of available points</li>
+<li>Late, but next day: -20% of available points</li>
+<li>Two days late or later: No credit, and we will not provide written feedback</li>
+</ul></li>
+<li><p>Project presentations: Late submissions not accepted</p></li>
+<li><p>Project write-ups:</p>
+<ul>
+<li>Late, but same day (before midnight): -10% of available points</li>
+<li>Late, but next day: -20% of available points</li>
+<li>Two days late or later: No credit, and we will not provide written feedback</li>
+</ul></li>
+<li><p>Peer evaluation:</p>
+<ul>
+<li>Late submissions not accepted</li>
+<li>Must turn in peer evaluation if you want your own score from others</li>
+</ul></li>
+</ul>
+</section>
+<section id="collaboration-policy" class="level2">
+<h2 class="anchored" data-anchor-id="collaboration-policy">Collaboration policy</h2>
+<ul>
+<li><p>Only work that is clearly assigned as team work should be completed collaboratively (Projects)</p></li>
+<li><p>Reading quizzes must be completed individually, you may not discuss answers with teammates, clarification questions should only be asked to myself and the TAs</p></li>
+<li><p>Homework assignments must be completed individually. You may not directly share answers / code with others, however you are welcome to discuss the problems in general and ask for advice</p></li>
+</ul>
+</section>
+<section id="sharing-reusing-code-policy" class="level2">
+<h2 class="anchored" data-anchor-id="sharing-reusing-code-policy">Sharing / reusing code policy</h2>
+<ul>
+<li><p>We are aware that a huge volume of code is available on the web, and many tasks may have solutions posted</p></li>
+<li><p>Unless explicitly stated otherwise, this course’s policy is that you may make use of any online resources (e.g.&nbsp;RStudio Community, StackOverflow, etc.) but you must explicitly cite where you obtained any code you directly use or use as inspiration in your solution(s).</p></li>
+<li><p>Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source</p></li>
+</ul>
+</section>
+<section id="academic-integrity" class="level2">
+<h2 class="anchored" data-anchor-id="academic-integrity">Academic integrity</h2>
+<blockquote class="blockquote">
+<p>To uphold the Duke Community Standard:</p>
+</blockquote>
+<blockquote class="blockquote">
+<ul>
+<li>I will not lie, cheat, or steal in my academic endeavors;</li>
+<li>I will conduct myself honorably in all my endeavors; and</li>
+<li>I will act if the Standard is compromised.</li>
+</ul>
+</blockquote>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<p><br><br><br></p>
+<div class="large hand" style="text-align: center">
+<p>most importantly:</p>
+<p>ask if you’re not sure if something violates a policy!</p>
+</div>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"></h2>
+</section>
+</section>
+<section id="support" class="level1">
+<h1>Support</h1>
+<section id="office-hours" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="office-hours">Office hours</h2>
+<ul>
+<li><p>Mine:</p>
+<ul>
+<li><p>Wednesdays 8 - 9 pm - Zoom (E)</p>
+<ul>
+<li><p>Except Wed, Feb 1</p></li>
+<li><p>Any other exceptions will be announced in class / by email</p></li>
+</ul></li>
+<li><p>By appointment - Zoom or Old Chem 213</p></li>
+</ul></li>
+<li><p>TAs:</p>
+<ul>
+<li><p>Jackie: Tuesdays 4 - 6 pm - Edge Project Room 2</p></li>
+<li><p>Lorenzo: Mondays 5 - 7 pm - Old Chemistry 203b</p></li>
+<li><p>Sam: Tuesdays 1:30 - 3:30 pm - Location TBA</p></li>
+<li><p>Evan: Mondays 10 am - 12 pm - Zoom (Link on Sakai &gt; Zoom meetings)</p></li>
+<li><p>Holly: Mondays 1-3 pm - Zoom (Link on Sakai &gt; Zoom meetings)</p></li>
+</ul></li>
+<li><p>+ lots more resources listed on the syllabus!</p></li>
+</ul>
+</section>
+<section id="wellness" class="level2">
+<h2 class="anchored" data-anchor-id="wellness">Wellness</h2>
+<p>I want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.</p>
+<ul>
+<li><p>You never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.</p></li>
+<li><p>I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded.</p></li>
+</ul>
+</section>
+</section>
+<section id="course-tools" class="level1">
+<h1>Course Tools</h1>
+<section id="rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
+<div class="large" style="text-align: center;">
+<p><a href="https://cmgr.oit.duke.edu/containers" class="uri">https://cmgr.oit.duke.edu/containers</a></p>
+</div>
+<ul>
+<li><p>Browser based RStudio instance(s) provided by Duke OIT</p></li>
+<li><p>Requires internet connection to access</p></li>
+<li><p>Provides consistency in hardware and software environments</p></li>
+<li><p>Local R installations are fine but we will not guarantee support</p></li>
+</ul>
+</section>
+<section id="github" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="github">GitHub</h2>
+<div class="large" style="text-align: center;">
+<p><a href="https://github.com/vizdata-s23" class="uri">https://github.com/vizdata-s23</a></p>
+</div>
+<ul>
+<li><p>GitHub organization for the course</p></li>
+<li><p>All of your work and your membership (enrollment) in the organization is private</p></li>
+<li><p>Each assignment is a private repo on GitHub, I distribute the assignments on GitHub and you submit them there</p></li>
+<li><p>Feedback on assignments is given as GitHub issues, scores recorded on Sakai Gradebook</p></li>
+</ul>
+<div class="task">
+<p>Fill out the <em>Getting to know you</em> survey for collection of your account names, later this week you will be invited to the course organization.</p>
+</div>
+</section>
+<section id="username-advice" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="username-advice">Username advice</h2>
+<div class="hand">
+<p>in case you don’t yet have a GitHub account…</p>
+</div>
+<p>Some brief advice about selecting your account names (particularly for GitHub),</p>
+<ul>
+<li><p>Incorporate your actual name! People like to know who they’re dealing with and makes your username easier for people to guess or remember</p></li>
+<li><p>Reuse your username from other contexts, e.g., Twitter or Slack</p></li>
+<li><p>Pick a username you will be comfortable revealing to your future boss</p></li>
+<li><p>Shorter is better than longer, but be as unique as possible</p></li>
+<li><p>Make it timeless. Avoid highlighting your current university, employer, or place of residence</p></li>
+</ul>
+</section>
+<section id="slack" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="slack">Slack</h2>
+<ul>
+<li><p>Online forum for asking and answering questions</p></li>
+<li><p>Private repo in the course organization</p></li>
+<li><p>You will need to join the course organization for access</p></li>
+<li><p>Ask <strong>and answer</strong> questions related to course logistics, assignment, etc. here</p></li>
+<li><p>Personal questions (e.g., extensions, illnesses, etc.) should be via email to me</p></li>
+<li><p>Once you join, browse the channels to make sure you’re posting questions in the right channel, update your profile with your name, photo/avatar of you that matches your GitHub profile, and your pronouns</p></li>
+<li><p><strong>Unfortunately</strong> Slack is <strong>not</strong> the best place to ask coding questions, but it’s a great place for real-time connection and collaboration</p></li>
+</ul>
+<div class="task">
+<p>Demo on Tuesday for asking good questions with proper code formatting.</p>
+</div>
+</section>
+<section id="before-the-weekend" class="level2">
+<h2 class="anchored" data-anchor-id="before-the-weekend">Before the weekend</h2>
+<ol type="1">
+<li><p>Create a GitHub account if you don’t have one</p></li>
+<li><p>Read the <a href="https://www.vizdata.org/syllabus.html">syllabus</a></p></li>
+<li><p>Make sure you can login in to RStudio and reserve a container for STA 313: <a href="https://cmgr.oit.duke.edu/containers">cmgr.oit.duke.edu/containers</a></p></li>
+<li><p>Complete the <em>Getting to know you</em> survey on Sakai – to be posted</p></li>
+<li><p>Complete the readings and Reading Quiz 1 – to be posted</p></li>
+</ol>
+</section>
+</section>
+<section id="grammar-of-graphics" class="level1 page-columns page-full">
+<h1>Grammar of graphics</h1>
+<section id="data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualization">Data visualization</h2>
+<blockquote class="blockquote">
+<p><em>“The simple graph has brought more information to the data analyst’s mind than any other device.” --- John Tukey</em></p>
+</blockquote>
+<ul>
+<li><p>Data visualization is the creation and study of the visual representation of data</p></li>
+<li><p>Many tools for visualizing data -- R is one of them</p></li>
+<li><p>Many approaches/systems within R for making data visualizations -- <strong>ggplot2</strong> is one of them, and that’s what we’re going to use</p></li>
+</ul>
+</section>
+<section id="ggplot2-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="ggplot2-tidyverse">ggplot2 ∈ tidyverse</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/ggplot2-part-of-tidyverse.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p><strong>ggplot2</strong> is tidyverse’s data visualization package</p></li>
+<li><p><code>gg</code> in “ggplot2” stands for Grammar of Graphics</p></li>
+<li><p>Inspired by the book <strong>Grammar of Graphics</strong> by Leland Wilkinson</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="grammar-of-graphics-1" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="grammar-of-graphics-1">Grammar of Graphics</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>A grammar of graphics is a tool that enables us to concisely describe the components of a graphic</p>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="images/grammar-of-graphics.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Source: <a href="http://bloggotype.blogspot.com/2016/08/holiday-notes2-grammar-of-graphics.html">BloggoType</a></p>
+</div></div></section>
+<section id="hello-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="hello-ggplot2">Hello ggplot2!</h2>
+<ul>
+<li><code>ggplot()</code> is the main function in ggplot2</li>
+<li>Plots are constructed in layers</li>
+<li>Structure of the code for plots can be summarized as</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> [dataset], </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [x<span class="sc">-</span>variable], <span class="at">y =</span> [y<span class="sc">-</span>variable])) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   other options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The ggplot2 package comes with the tidyverse</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>For help with ggplot2, see <a href="http://ggplot2.tidyverse.org/">ggplot2.tidyverse.org</a></li>
+</ul>
+</section>
+<section id="data-palmer-penguins" class="level2">
+<h2 class="anchored" data-anchor-id="data-palmer-penguins">Data: Palmer Penguins</h2>
+<p>Measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.</p>
+<div class="columns">
+<div class="column" style="width:20%;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/penguins.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div><div class="column" style="width:80%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="goal" class="level2">
+<h2 class="anchored" data-anchor-id="goal">Goal</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="00-welcome-grammar_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  penguins,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">colour =</span> species)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"Species"</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="an-improved-goal" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="an-improved-goal">An improved goal</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Narrative</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="00-welcome-grammar_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  penguins,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm,<span class="at">y =</span> bill_length_mm,<span class="at">colour =</span> species)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"Species"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis.</p>
+<p>Represent each observation with a point and map species to the colour of each point.</p>
+<p>Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.</p>
+<p>Finally, use a discrete colour scale that is designed to be perceived by viewers with common forms of colour blindness.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2023, Mine Çetinkaya-Rundel</div>   
+    <div class="nav-footer-right">This page is built with 💛 and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

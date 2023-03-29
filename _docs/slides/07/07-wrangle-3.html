@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+
+<title>AM 1 - Data wrangling - III</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<meta property="og:title" content="AM 1 - Data wrangling - III">
+<meta property="og:description" content="Lecture 7">
+<meta property="og:site-name" content="AM 1">
+<meta name="twitter:title" content="AM 1 - Data wrangling - III">
+<meta name="twitter:description" content="Lecture 7">
+<meta name="twitter:image" content="../../images/twitter-card.png">
+<meta name="twitter:creator" content="@jasminskoenig">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Data wrangling - III</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/vizdata-s23/vizdata-s23" title="GitHub organization" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="sidebar-tool px-1"><i class="bi bi-code-square"></i></a>
+    <a href="" title="Sakai" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/directtool/e0d406f3-bd6a-41fe-a2e9-18bfecebeed0/">
+          Announcements
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/directtool/c3f055cb-2cdc-4527-a88e-b75d1162784c/">
+          Zoom meetings
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/directtool/3ec6ed6c-6bc7-4758-917b-431e0b5b39c7/">
+          Gradebook
+          </a>
+        </li>
+    </ul>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Kursinformationen</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-overview.html" class="sidebar-item-text sidebar-link">Allgemeines</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-links.html" class="sidebar-item-text sidebar-link">Hilfreiche Links</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-faq.html" class="sidebar-item-text sidebar-link">FAQ</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Unterstützung</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-support.html" class="sidebar-item-text sidebar-link">Studienleistung</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/project-tips-resources.html" class="sidebar-item-text sidebar-link">Hausarbeit</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Credits</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-support.html" class="sidebar-item-text sidebar-link">Studienleistung</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/project-tips-resources.html" class="sidebar-item-text sidebar-link">Hausarbeit</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link active" data-scroll-target="#warm-up">Warm up</a>
+  <ul class="collapse">
+  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  </ul></li>
+  <li><a href="#hw-1-lessons-learned" id="toc-hw-1-lessons-learned" class="nav-link" data-scroll-target="#hw-1-lessons-learned">HW 1 lessons learned</a>
+  <ul class="collapse">
+  <li><a href="#highlights" id="toc-highlights" class="nav-link" data-scroll-target="#highlights">Highlights</a></li>
+  <li><a href="#checks" id="toc-checks" class="nav-link" data-scroll-target="#checks">Checks</a></li>
+  <li><a href="#warnings-and-messages" id="toc-warnings-and-messages" class="nav-link" data-scroll-target="#warnings-and-messages">Warnings and messages</a></li>
+  <li><a href="#missing-values-i" id="toc-missing-values-i" class="nav-link" data-scroll-target="#missing-values-i">Missing values I</a></li>
+  <li><a href="#missing-values-ii" id="toc-missing-values-ii" class="nav-link" data-scroll-target="#missing-values-ii">Missing values II</a></li>
+  <li><a href="#missing-values-ii-1" id="toc-missing-values-ii-1" class="nav-link" data-scroll-target="#missing-values-ii-1">Missing values II</a></li>
+  <li><a href="#missing-values-ii-2" id="toc-missing-values-ii-2" class="nav-link" data-scroll-target="#missing-values-ii-2">Missing values II</a></li>
+  <li><a href="#missing-values-ii-3" id="toc-missing-values-ii-3" class="nav-link" data-scroll-target="#missing-values-ii-3">Missing values II</a></li>
+  </ul></li>
+  <li><a href="#coordinate-systems" id="toc-coordinate-systems" class="nav-link" data-scroll-target="#coordinate-systems">Coordinate systems</a>
+  <ul class="collapse">
+  <li><a href="#coordinate-systems-purpose" id="toc-coordinate-systems-purpose" class="nav-link" data-scroll-target="#coordinate-systems-purpose">Coordinate systems: purpose</a></li>
+  <li><a href="#coordinate-systems-types" id="toc-coordinate-systems-types" class="nav-link" data-scroll-target="#coordinate-systems-types">Coordinate systems: types</a></li>
+  <li><a href="#setting-limits-what-the-plots-say" id="toc-setting-limits-what-the-plots-say" class="nav-link" data-scroll-target="#setting-limits-what-the-plots-say">Setting limits: what the plots say</a></li>
+  <li><a href="#setting-limits-what-the-warnings-say" id="toc-setting-limits-what-the-warnings-say" class="nav-link" data-scroll-target="#setting-limits-what-the-warnings-say">Setting limits: what the warnings say</a></li>
+  <li><a href="#setting-limits" id="toc-setting-limits" class="nav-link" data-scroll-target="#setting-limits">Setting limits</a></li>
+  <li><a href="#fixing-aspect-ratio-with-coord_fixed" id="toc-fixing-aspect-ratio-with-coord_fixed" class="nav-link" data-scroll-target="#fixing-aspect-ratio-with-coord_fixed">Fixing aspect ratio with <code>coord_fixed()</code></a></li>
+  <li><a href="#pie-charts-and-bullseye-charts-with-coord_polar" id="toc-pie-charts-and-bullseye-charts-with-coord_polar" class="nav-link" data-scroll-target="#pie-charts-and-bullseye-charts-with-coord_polar">Pie charts and bullseye charts with <code>coord_polar()</code></a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#pie-charts" id="toc-pie-charts" class="nav-link" data-scroll-target="#pie-charts">Pie charts</a></li>
+  <li><a href="#pie-charts-when-to-love-em-when-to-lose-em" id="toc-pie-charts-when-to-love-em-when-to-lose-em" class="nav-link" data-scroll-target="#pie-charts-when-to-love-em-when-to-lose-em">Pie charts: when to love ’em, when to lose ’em</a></li>
+  <li><a href="#pie-charts-when-to-love-em-when-to-lose-em-1" id="toc-pie-charts-when-to-love-em-when-to-lose-em-1" class="nav-link" data-scroll-target="#pie-charts-when-to-love-em-when-to-lose-em-1">Pie charts: when to love ’em, when to lose ’em</a></li>
+  </ul></li>
+  <li><a href="#bringing-together-multiple-data-frames" id="toc-bringing-together-multiple-data-frames" class="nav-link" data-scroll-target="#bringing-together-multiple-data-frames">Bringing together multiple data frames</a>
+  <ul class="collapse">
+  <li><a href="#scenario-2" id="toc-scenario-2" class="nav-link" data-scroll-target="#scenario-2">Scenario 2</a></li>
+  <li><a href="#women-in-science-who-changed-the-world" id="toc-women-in-science-who-changed-the-world" class="nav-link" data-scroll-target="#women-in-science-who-changed-the-world">10 women in science who changed the world</a></li>
+  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs">Inputs</a></li>
+  <li><a href="#desired-output" id="toc-desired-output" class="nav-link" data-scroll-target="#desired-output">Desired output</a></li>
+  <li><a href="#inputs-reminder" id="toc-inputs-reminder" class="nav-link" data-scroll-target="#inputs-reminder">Inputs, reminder</a></li>
+  <li><a href="#joining-data-frames" id="toc-joining-data-frames" class="nav-link" data-scroll-target="#joining-data-frames">Joining data frames</a></li>
+  <li><a href="#setup-1" id="toc-setup-1" class="nav-link" data-scroll-target="#setup-1">Setup</a></li>
+  <li><a href="#left_join" id="toc-left_join" class="nav-link" data-scroll-target="#left_join"><code>left_join()</code></a></li>
+  <li><a href="#left_join-1" id="toc-left_join-1" class="nav-link" data-scroll-target="#left_join-1"><code>left_join()</code></a></li>
+  <li><a href="#right_join" id="toc-right_join" class="nav-link" data-scroll-target="#right_join"><code>right_join()</code></a></li>
+  <li><a href="#right_join-1" id="toc-right_join-1" class="nav-link" data-scroll-target="#right_join-1"><code>right_join()</code></a></li>
+  <li><a href="#full_join" id="toc-full_join" class="nav-link" data-scroll-target="#full_join"><code>full_join()</code></a></li>
+  <li><a href="#full_join-1" id="toc-full_join-1" class="nav-link" data-scroll-target="#full_join-1"><code>full_join()</code></a></li>
+  <li><a href="#inner_join" id="toc-inner_join" class="nav-link" data-scroll-target="#inner_join"><code>inner_join()</code></a></li>
+  <li><a href="#inner_join-1" id="toc-inner_join-1" class="nav-link" data-scroll-target="#inner_join-1"><code>inner_join()</code></a></li>
+  <li><a href="#semi_join" id="toc-semi_join" class="nav-link" data-scroll-target="#semi_join"><code>semi_join()</code></a></li>
+  <li><a href="#semi_join-1" id="toc-semi_join-1" class="nav-link" data-scroll-target="#semi_join-1"><code>semi_join()</code></a></li>
+  <li><a href="#anti_join" id="toc-anti_join" class="nav-link" data-scroll-target="#anti_join"><code>anti_join()</code></a></li>
+  <li><a href="#anti_join-1" id="toc-anti_join-1" class="nav-link" data-scroll-target="#anti_join-1"><code>anti_join()</code></a></li>
+  <li><a href="#putting-it-altogether" id="toc-putting-it-altogether" class="nav-link" data-scroll-target="#putting-it-altogether">Putting it altogether</a></li>
+  <li><a href="#join-functions" id="toc-join-functions" class="nav-link" data-scroll-target="#join-functions"><code>*_join()</code> functions</a></li>
+  <li><a href="#visualizing-joined-data" id="toc-visualizing-joined-data" class="nav-link" data-scroll-target="#visualizing-joined-data">Visualizing joined data</a></li>
+  <li><a href="#but-first" id="toc-but-first" class="nav-link" data-scroll-target="#but-first">But first…</a></li>
+  <li><a href="#livecoding" id="toc-livecoding" class="nav-link" data-scroll-target="#livecoding">Livecoding</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jasminskoenig/AM1-populism.git/edit/main/slides/07/07-wrangle-3.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jasminskoenig/AM1-populism.git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Data wrangling - III</h1>
+<p class="subtitle lead">Lecture 7</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    Dr.&nbsp;Mine Çetinkaya-Rundel 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Duke University <br> STA 313 - Spring 2023
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="warm-up" class="level1">
+<h1>Warm up</h1>
+<section id="announcements" class="level2">
+<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
+<ul>
+<li>Tomorrow in lab: Project proposal peer review
+<ul>
+<li><p>You’ll be assessed on the quality (and participation) of your peer review</p></li>
+<li><p>Updates based on peer review are due Friday at 5pm</p></li>
+<li><p>Your proposal will be “graded” after that, by me</p></li>
+</ul></li>
+<li>HW 2 is due Thursday</li>
+</ul>
+</section>
+<section id="setup" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="setup">Setup</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(countdown)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># set theme for ggplot2</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># set width of code output</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">65</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># set figure parameters for knitr</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.width =</span> <span class="dv">7</span>,        <span class="co"># 7" width</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.asp =</span> <span class="fl">0.618</span>,      <span class="co"># the golden ratio</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.retina =</span> <span class="dv">3</span>,       <span class="co"># dpi multiplier for displaying HTML output on retina</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.align =</span> <span class="st">"center"</span>, <span class="co"># center align figures</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span>             <span class="co"># higher dpi, sharper image</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="hw-1-lessons-learned" class="level1">
+<h1>HW 1 lessons learned</h1>
+<section id="highlights" class="level2">
+<h2 class="anchored" data-anchor-id="highlights">Highlights</h2>
+<ul>
+<li><p>Review HW 1 issues, and show us you reviewed them by closing the issue.</p></li>
+<li><p>DO NOT hard code paths! Use the <strong>here</strong> package to help with relative paths, if you need.</p></li>
+</ul>
+</section>
+<section id="checks" class="level2">
+<h2 class="anchored" data-anchor-id="checks">Checks</h2>
+<div class="task">
+<p>Go to your HW 02 repo and make sure all your changes are committed. Then <strong>pull</strong>. You’ll see there were some updates. Fix merge conflicts, if any. Then <strong>push</strong>. Check that your document renders.</p>
+</div>
+</section>
+<section id="warnings-and-messages" class="level2">
+<h2 class="anchored" data-anchor-id="warnings-and-messages">Warnings and messages</h2>
+<ul>
+<li><p>You should suppress package loading and data loading messages with <code>message: false</code> as a chunk option</p></li>
+<li><p>You should also suppress warnings with <code>warning: false</code> <strong>after</strong> making sure you’re ok with them, or update your code to eliminate warnings</p></li>
+</ul>
+</section>
+<section id="missing-values-i" class="level2">
+<h2 class="anchored" data-anchor-id="missing-values-i">Missing values I</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="task">
+<p>Is it ok to suppress the following warning? Or should you update your code to eliminate it?</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">3</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">5</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="1800"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-values-ii" class="level2">
+<h2 class="anchored" data-anchor-id="missing-values-ii">Missing values II</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="1800"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">med_x =</span> <span class="fu">median</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+   med_x
+   &lt;dbl&gt;
+1 -0.385</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-values-ii-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="missing-values-ii-1">Missing values II</h2>
+<div class="task">
+<p>Is it ok to suppress the following warning? Or should you update your code to eliminate it?</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 69 rows containing non-finite values
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="1800"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-values-ii-2" class="level2">
+<h2 class="anchored" data-anchor-id="missing-values-ii-2">Missing values II</h2>
+<div class="task">
+<p>Is it ok to suppress the following warning? Or should you update your code to eliminate it?</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 69 rows containing non-finite values
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="1800"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-values-ii-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="missing-values-ii-3">Missing values II</h2>
+<div class="task">
+<p>Why doesn’t the following generate a warning?</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="1800"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="coordinate-systems" class="level1">
+<h1>Coordinate systems</h1>
+<section id="coordinate-systems-purpose" class="level2">
+<h2 class="anchored" data-anchor-id="coordinate-systems-purpose">Coordinate systems: purpose</h2>
+<ul>
+<li>Combine the two position aesthetics (<code>x</code> and <code>y</code>) to produce a 2d position on the plot:
+<ul>
+<li>linear coordinate system: horizontal and vertical coordinates</li>
+<li>polar coordinate system: angle and radius</li>
+<li>maps: latitude and longitude</li>
+</ul></li>
+<li>Draw axes and panel backgrounds in coordination with the faceter coordinate systems</li>
+</ul>
+</section>
+<section id="coordinate-systems-types" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="coordinate-systems-types">Coordinate systems: types</h2>
+<ol type="1">
+<li><strong>Linear coordinate systems:</strong> preserve the shape of geoms</li>
+</ol>
+<ul>
+<li><code>coord_cartesian()</code>: the default Cartesian coordinate system, where the 2d position of an element is given by the combination of the x and y positions.</li>
+<li><code>coord_fixed()</code>: Cartesian coordinate system with a fixed aspect ratio. <em>(useful only in limited circumstances)</em></li>
+</ul>
+<div class="incremental">
+<ol start="2" type="1">
+<li><strong>Non-linear coordinate systems:</strong> can change the shapes – a straight line may no longer be straight. The closest distance between two points may no longer be a straight line.</li>
+</ol>
+<ul>
+<li><code>coord_trans()</code>: Apply arbitrary transformations to x and y positions, after the data has been processed by the stat</li>
+<li><code>coord_polar()</code>: Polar coordinates</li>
+<li><code>coord_sf()</code>: Map projections</li>
+</ul>
+</div>
+</section>
+<section id="setting-limits-what-the-plots-say" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="setting-limits-what-the-plots-say">Setting limits: what the plots say</h2>
+<div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Plot 1"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">190</span>, <span class="dv">220</span>)) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">4000</span>, <span class="dv">5000</span>)) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Plot 2"</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">190</span>, <span class="dv">220</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">4000</span>, <span class="dv">5000</span>) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Plot 3"</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">190</span>,<span class="dv">220</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">4000</span>, <span class="dv">5000</span>)) <span class="sc">+</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Plot 4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-output-location="slide">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/set-limits-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/set-limits-2.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/set-limits-3.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/set-limits-4.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="setting-limits-what-the-warnings-say" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="setting-limits-what-the-warnings-say">Setting limits: what the warnings say</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Plot 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite values
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">190</span>, <span class="dv">220</span>)) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">4000</span>, <span class="dv">5000</span>)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Plot 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 235 rows containing non-finite values
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 235 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">190</span>, <span class="dv">220</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">4000</span>, <span class="dv">5000</span>) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Plot 3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 235 rows containing non-finite values (`stat_smooth()`).
+Removed 235 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">190</span>,<span class="dv">220</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">4000</span>, <span class="dv">5000</span>)) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Plot 4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite values
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+</div>
+</section>
+<section id="setting-limits" class="level2">
+<h2 class="anchored" data-anchor-id="setting-limits">Setting limits</h2>
+<ul>
+<li>Setting scale limits: Any data outside the limits is thrown away
+<ul>
+<li><code>scale_*_continuous()</code>, <code>xlim</code> and <code>ylim</code> arguments</li>
+<li><code>xlim()</code> and <code>ylim()</code></li>
+</ul></li>
+<li>Setting coordinate system limits: Use all the data, but only display a small region of the plot (zooming in)
+<ul>
+<li><code>coord_cartesian()</code>, <code>xlim</code> and <code>ylim</code> arguments</li>
+</ul></li>
+</ul>
+</section>
+<section id="fixing-aspect-ratio-with-coord_fixed" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="fixing-aspect-ratio-with-coord_fixed">Fixing aspect ratio with <code>coord_fixed()</code></h2>
+<p>Useful when having an aspect ratio of 1 makes sense, e.g.&nbsp;scores on two tests (reading and writing) on the same scale (0 to 100 points)</p>
+<div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hsb2, <span class="fu">aes</span>(<span class="at">x =</span> read, <span class="at">y =</span> write)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Not fixed"</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hsb2, <span class="fu">aes</span>(<span class="at">x =</span> read, <span class="at">y =</span> write)) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fixed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-output-location="slide">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-12-2.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="pie-charts-and-bullseye-charts-with-coord_polar" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pie-charts-and-bullseye-charts-with-coord_polar">Pie charts and bullseye charts with <code>coord_polar()</code></h2>
+<div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Stacked bar chart"</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pie chart"</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bullseye chart"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-13-3.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="level2 center">
+<h2 class="center anchored" data-anchor-id="section"></h2>
+<div class="hand">
+<p>aside: about pie charts…</p>
+</div>
+</section>
+<section id="pie-charts" class="level2">
+<h2 class="anchored" data-anchor-id="pie-charts">Pie charts</h2>
+<div class="task">
+<p>What do you know about pie charts and data visualization best practices? Love ’em or lose ’em?</p>
+</div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-14-2.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="pie-charts-when-to-love-em-when-to-lose-em" class="level2">
+<h2 class="anchored" data-anchor-id="pie-charts-when-to-love-em-when-to-lose-em">Pie charts: when to love ’em, when to lose ’em</h2>
+<p>For categorical variables with few levels, bar charts can work well</p>
+<div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pie_homeownership</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> homeownership)) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_openintro</span>(<span class="st">"hot"</span>) <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Homeownership"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-15-2.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="pie-charts-when-to-love-em-when-to-lose-em-1" class="level2">
+<h2 class="anchored" data-anchor-id="pie-charts-when-to-love-em-when-to-lose-em-1">Pie charts: when to love ’em, when to lose ’em</h2>
+<p>For categorical variables with many levels, bar charts are difficult to read</p>
+<div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pie_loan_grades</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> grade, <span class="at">fill =</span> grade)) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_openintro</span>(<span class="st">"cool"</span>) <span class="sc">+</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Loan grade"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="bringing-together-multiple-data-frames" class="level1 page-columns page-full">
+<h1>Bringing together multiple data frames</h1>
+<section id="scenario-2" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-2">Scenario 2</h2>
+<div class="hand">
+<p>We…</p>
+<p>have <strong>multiple</strong> data frames</p>
+<p>want to want to bring them together so we can plot them</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>professions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/professions.csv"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dates.csv"</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>works <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/works.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+
+</div>
+</section>
+<section id="women-in-science-who-changed-the-world" class="level2 smaller page-columns page-full">
+<h2 class="smaller anchored" data-anchor-id="women-in-science-who-changed-the-world">10 women in science who changed the world</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+
+<div id="cddkcasayl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#cddkcasayl) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#cddkcasayl) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#cddkcasayl) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#cddkcasayl) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#cddkcasayl) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#cddkcasayl) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#cddkcasayl) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#cddkcasayl) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#cddkcasayl) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#cddkcasayl) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#cddkcasayl) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#cddkcasayl) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#cddkcasayl) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#cddkcasayl) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#cddkcasayl) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#cddkcasayl) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#cddkcasayl) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#cddkcasayl) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#cddkcasayl) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#cddkcasayl) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#cddkcasayl) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#cddkcasayl) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#cddkcasayl) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#cddkcasayl) .gt_left {
+  text-align: left;
+}
+
+:where(#cddkcasayl) .gt_center {
+  text-align: center;
+}
+
+:where(#cddkcasayl) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#cddkcasayl) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#cddkcasayl) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#cddkcasayl) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#cddkcasayl) .gt_super {
+  font-size: 65%;
+}
+
+:where(#cddkcasayl) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#cddkcasayl) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#cddkcasayl) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#cddkcasayl) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#cddkcasayl) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#cddkcasayl) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#cddkcasayl) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="name">name</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="name" class="gt_row gt_left">Ada Lovelace</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Marie Curie</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Janaki Ammal</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Chien-Shiung Wu</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Katherine Johnson</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Rosalind Franklin</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Vera Rubin</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Gladys West</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Flossie Wong-Staal</td></tr>
+    <tr><td headers="name" class="gt_row gt_left">Jennifer Doudna</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Source: <a href="https://www.discovermagazine.com/the-sciences/meet-10-women-in-science-who-changed-the-world">Discover Magazine</a></p>
+</div></div></section>
+<section id="inputs" class="level2">
+<h2 class="anchored" data-anchor-id="inputs">Inputs</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">professions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">dates</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">works</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>professions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   name               profession                        
+   &lt;chr&gt;              &lt;chr&gt;                             
+ 1 Ada Lovelace       Mathematician                     
+ 2 Marie Curie        Physicist and Chemist             
+ 3 Janaki Ammal       Botanist                          
+ 4 Chien-Shiung Wu    Physicist                         
+ 5 Katherine Johnson  Mathematician                     
+ 6 Rosalind Franklin  Chemist                           
+ 7 Vera Rubin         Astronomer                        
+ 8 Gladys West        Mathematician                     
+ 9 Flossie Wong-Staal Virologist and Molecular Biologist
+10 Jennifer Doudna    Biochemist                        </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>dates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+  name               birth_year death_year
+  &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt;
+1 Janaki Ammal             1897       1984
+2 Chien-Shiung Wu          1912       1997
+3 Katherine Johnson        1918       2020
+4 Rosalind Franklin        1920       1958
+5 Vera Rubin               1928       2016
+6 Gladys West              1930         NA
+7 Flossie Wong-Staal       1947         NA
+8 Jennifer Doudna          1964         NA</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>works</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 2
+  name               known_for                                   
+  &lt;chr&gt;              &lt;chr&gt;                                       
+1 Ada Lovelace       first computer algorithm                    
+2 Marie Curie        theory of radioactivity,  first woman Nobel…
+3 Janaki Ammal       hybrid species, biodiversity protection     
+4 Chien-Shiung Wu    experiment overturning theory of parity     
+5 Katherine Johnson  orbital mechanics critical to sending first…
+6 Vera Rubin         existence of dark matter                    
+7 Gladys West        mathematical modeling of the shape of the E…
+8 Flossie Wong-Staal first to clone HIV and map its genes, which…
+9 Jennifer Doudna    one of the primary developers of CRISPR     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="desired-output" class="level2">
+<h2 class="anchored" data-anchor-id="desired-output">Desired output</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+   name               profession          birth…¹ death…² known…³
+   &lt;chr&gt;              &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  
+ 1 Ada Lovelace       Mathematician            NA      NA first …
+ 2 Marie Curie        Physicist and Chem…      NA      NA theory…
+ 3 Janaki Ammal       Botanist               1897    1984 hybrid…
+ 4 Chien-Shiung Wu    Physicist              1912    1997 experi…
+ 5 Katherine Johnson  Mathematician          1918    2020 orbita…
+ 6 Rosalind Franklin  Chemist                1920    1958 &lt;NA&gt;   
+ 7 Vera Rubin         Astronomer             1928    2016 existe…
+ 8 Gladys West        Mathematician          1930      NA mathem…
+ 9 Flossie Wong-Staal Virologist and Mol…    1947      NA first …
+10 Jennifer Doudna    Biochemist             1964      NA one of…
+# … with abbreviated variable names ¹​birth_year, ²​death_year,
+#   ³​known_for</code></pre>
+</div>
+</div>
+</section>
+<section id="inputs-reminder" class="level2">
+<h2 class="anchored" data-anchor-id="inputs-reminder">Inputs, reminder</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(professions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "name"       "profession"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "name"       "birth_year" "death_year"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(works)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "name"      "known_for"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(professions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(works)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="joining-data-frames" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="joining-data-frames">Joining data frames</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">something_join</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>left_join()</code>: all rows from x</li>
+<li><code>right_join()</code>: all rows from y</li>
+<li><code>full_join()</code>: all rows from both x and y</li>
+<li><code>semi_join()</code>: all rows from x where there are matching values in y, keeping just columns from x</li>
+<li><code>inner_join()</code>: all rows from x where there are matching values in y, return all combination of multiple matches in the case of multiple matches</li>
+<li><code>anti_join()</code>: return all rows from x where there are not matching values in y, never duplicate rows of x</li>
+<li>…</li>
+</ul>
+</section>
+<section id="setup-1" class="level2">
+<h2 class="anchored" data-anchor-id="setup-1">Setup</h2>
+<p>For the next few slides…</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_x =</span> <span class="fu">c</span>(<span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span>)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+     id value_x
+  &lt;dbl&gt; &lt;chr&gt;  
+1     1 x1     
+2     2 x2     
+3     3 x3     </code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_y =</span> <span class="fu">c</span>(<span class="st">"y1"</span>, <span class="st">"y2"</span>, <span class="st">"y4"</span>)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+     id value_y
+  &lt;dbl&gt; &lt;chr&gt;  
+1     1 y1     
+2     2 y2     
+3     4 y4     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="left_join" class="level2">
+<h2 class="anchored" data-anchor-id="left_join"><code>left_join()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/left-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "id"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+     id value_x value_y
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  
+1     1 x1      y1     
+2     2 x2      y2     
+3     3 x3      &lt;NA&gt;   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="left_join-1" class="level2">
+<h2 class="anchored" data-anchor-id="left_join-1"><code>left_join()</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>professions <span class="sc">|&gt;</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "name"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 4
+   name               profession                  birth…¹ death…²
+   &lt;chr&gt;              &lt;chr&gt;                         &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Ada Lovelace       Mathematician                    NA      NA
+ 2 Marie Curie        Physicist and Chemist            NA      NA
+ 3 Janaki Ammal       Botanist                       1897    1984
+ 4 Chien-Shiung Wu    Physicist                      1912    1997
+ 5 Katherine Johnson  Mathematician                  1918    2020
+ 6 Rosalind Franklin  Chemist                        1920    1958
+ 7 Vera Rubin         Astronomer                     1928    2016
+ 8 Gladys West        Mathematician                  1930      NA
+ 9 Flossie Wong-Staal Virologist and Molecular B…    1947      NA
+10 Jennifer Doudna    Biochemist                     1964      NA
+# … with abbreviated variable names ¹​birth_year, ²​death_year</code></pre>
+</div>
+</div>
+</section>
+<section id="right_join" class="level2">
+<h2 class="anchored" data-anchor-id="right_join"><code>right_join()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/right-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "id"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+     id value_x value_y
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  
+1     1 x1      y1     
+2     2 x2      y2     
+3     4 &lt;NA&gt;    y4     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="right_join-1" class="level2">
+<h2 class="anchored" data-anchor-id="right_join-1"><code>right_join()</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>professions <span class="sc">|&gt;</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(dates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "name"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 4
+  name               profession                   birth…¹ death…²
+  &lt;chr&gt;              &lt;chr&gt;                          &lt;dbl&gt;   &lt;dbl&gt;
+1 Janaki Ammal       Botanist                        1897    1984
+2 Chien-Shiung Wu    Physicist                       1912    1997
+3 Katherine Johnson  Mathematician                   1918    2020
+4 Rosalind Franklin  Chemist                         1920    1958
+5 Vera Rubin         Astronomer                      1928    2016
+6 Gladys West        Mathematician                   1930      NA
+7 Flossie Wong-Staal Virologist and Molecular Bi…    1947      NA
+8 Jennifer Doudna    Biochemist                      1964      NA
+# … with abbreviated variable names ¹​birth_year, ²​death_year</code></pre>
+</div>
+</div>
+</section>
+<section id="full_join" class="level2">
+<h2 class="anchored" data-anchor-id="full_join"><code>full_join()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/full-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "id"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+     id value_x value_y
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  
+1     1 x1      y1     
+2     2 x2      y2     
+3     3 x3      &lt;NA&gt;   
+4     4 &lt;NA&gt;    y4     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="full_join-1" class="level2">
+<h2 class="anchored" data-anchor-id="full_join-1"><code>full_join()</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>dates <span class="sc">|&gt;</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(works)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "name"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 4
+   name               birth_year death_year known_for            
+   &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                
+ 1 Janaki Ammal             1897       1984 hybrid species, biod…
+ 2 Chien-Shiung Wu          1912       1997 experiment overturni…
+ 3 Katherine Johnson        1918       2020 orbital mechanics cr…
+ 4 Rosalind Franklin        1920       1958 &lt;NA&gt;                 
+ 5 Vera Rubin               1928       2016 existence of dark ma…
+ 6 Gladys West              1930         NA mathematical modelin…
+ 7 Flossie Wong-Staal       1947         NA first to clone HIV a…
+ 8 Jennifer Doudna          1964         NA one of the primary d…
+ 9 Ada Lovelace               NA         NA first computer algor…
+10 Marie Curie                NA         NA theory of radioactiv…</code></pre>
+</div>
+</div>
+</section>
+<section id="inner_join" class="level2">
+<h2 class="anchored" data-anchor-id="inner_join"><code>inner_join()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/inner-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "id"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+     id value_x value_y
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  
+1     1 x1      y1     
+2     2 x2      y2     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="inner_join-1" class="level2">
+<h2 class="anchored" data-anchor-id="inner_join-1"><code>inner_join()</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>dates <span class="sc">|&gt;</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(works)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "name"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 4
+  name               birth_year death_year known_for             
+  &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                 
+1 Janaki Ammal             1897       1984 hybrid species, biodi…
+2 Chien-Shiung Wu          1912       1997 experiment overturnin…
+3 Katherine Johnson        1918       2020 orbital mechanics cri…
+4 Vera Rubin               1928       2016 existence of dark mat…
+5 Gladys West              1930         NA mathematical modeling…
+6 Flossie Wong-Staal       1947         NA first to clone HIV an…
+7 Jennifer Doudna          1964         NA one of the primary de…</code></pre>
+</div>
+</div>
+</section>
+<section id="semi_join" class="level2">
+<h2 class="anchored" data-anchor-id="semi_join"><code>semi_join()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/semi-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semi_join</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "id"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+     id value_x
+  &lt;dbl&gt; &lt;chr&gt;  
+1     1 x1     
+2     2 x2     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="semi_join-1" class="level2">
+<h2 class="anchored" data-anchor-id="semi_join-1"><code>semi_join()</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>dates <span class="sc">|&gt;</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(works)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "name"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  name               birth_year death_year
+  &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt;
+1 Janaki Ammal             1897       1984
+2 Chien-Shiung Wu          1912       1997
+3 Katherine Johnson        1918       2020
+4 Vera Rubin               1928       2016
+5 Gladys West              1930         NA
+6 Flossie Wong-Staal       1947         NA
+7 Jennifer Doudna          1964         NA</code></pre>
+</div>
+</div>
+</section>
+<section id="anti_join" class="level2">
+<h2 class="anchored" data-anchor-id="anti_join"><code>anti_join()</code></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/anti-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anti_join</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "id"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+     id value_x
+  &lt;dbl&gt; &lt;chr&gt;  
+1     3 x3     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="anti_join-1" class="level2">
+<h2 class="anchored" data-anchor-id="anti_join-1"><code>anti_join()</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>dates <span class="sc">|&gt;</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(works)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "name"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  name              birth_year death_year
+  &lt;chr&gt;                  &lt;dbl&gt;      &lt;dbl&gt;
+1 Rosalind Franklin       1920       1958</code></pre>
+</div>
+</div>
+</section>
+<section id="putting-it-altogether" class="level2">
+<h2 class="anchored" data-anchor-id="putting-it-altogether">Putting it altogether</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>scientists <span class="ot">&lt;-</span> professions <span class="sc">|&gt;</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dates) <span class="sc">|&gt;</span></span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(works)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = "name"
+Joining, by = "name"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>scientists</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+   name               profession          birth…¹ death…² known…³
+   &lt;chr&gt;              &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  
+ 1 Ada Lovelace       Mathematician            NA      NA first …
+ 2 Marie Curie        Physicist and Chem…      NA      NA theory…
+ 3 Janaki Ammal       Botanist               1897    1984 hybrid…
+ 4 Chien-Shiung Wu    Physicist              1912    1997 experi…
+ 5 Katherine Johnson  Mathematician          1918    2020 orbita…
+ 6 Rosalind Franklin  Chemist                1920    1958 &lt;NA&gt;   
+ 7 Vera Rubin         Astronomer             1928    2016 existe…
+ 8 Gladys West        Mathematician          1930      NA mathem…
+ 9 Flossie Wong-Staal Virologist and Mol…    1947      NA first …
+10 Jennifer Doudna    Biochemist             1964      NA one of…
+# … with abbreviated variable names ¹​birth_year, ²​death_year,
+#   ³​known_for</code></pre>
+</div>
+</div>
+</section>
+<section id="join-functions" class="level2">
+<h2 class="anchored" data-anchor-id="join-functions"><code>*_join()</code> functions</h2>
+<ul>
+<li>From <strong>dplyr</strong></li>
+<li>Incredibly useful for bringing datasets with common information (e.g., unique identifier) together</li>
+<li>Use <code>by</code> argument when the names of the column containing the common information are not the same across datasets</li>
+<li>Always check that the numbers of rows and columns of the result dataset makes sense</li>
+<li>Refer to <a href="https://dplyr.tidyverse.org/articles/two-table.html">two-table verbs vignette</a> when needed</li>
+</ul>
+</section>
+<section id="visualizing-joined-data" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-joined-data">Visualizing joined data</h2>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="07-wrangle-3_files/figure-revealjs/scientists-gantt-plot-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="but-first" class="level2">
+<h2 class="anchored" data-anchor-id="but-first">But first…</h2>
+<div class="task">
+<p>What is the plot in the previous slide called?</p>
+</div>
+</section>
+<section id="livecoding" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="livecoding">Livecoding</h2>
+<p>Reveal below for code developed during live coding session.</p>
+<ul>
+<li>Transform</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>scientists_longer <span class="ot">&lt;-</span> scientists <span class="sc">|&gt;</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">birth_year =</span> <span class="fu">case_when</span>(</span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>      name <span class="sc">==</span> <span class="st">"Ada Lovelace"</span> <span class="sc">~</span> <span class="dv">1815</span>,</span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>      name <span class="sc">==</span> <span class="st">"Marie Curie"</span> <span class="sc">~</span> <span class="dv">1867</span>,</span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> birth_year</span>
+<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb99-8"><a href="#cb99-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">death_year =</span> <span class="fu">case_when</span>(</span>
+<span id="cb99-9"><a href="#cb99-9" aria-hidden="true" tabindex="-1"></a>      name <span class="sc">==</span> <span class="st">"Ada Lovelace"</span> <span class="sc">~</span> <span class="dv">1852</span>,</span>
+<span id="cb99-10"><a href="#cb99-10" aria-hidden="true" tabindex="-1"></a>      name <span class="sc">==</span> <span class="st">"Marie Curie"</span> <span class="sc">~</span> <span class="dv">1934</span>,</span>
+<span id="cb99-11"><a href="#cb99-11" aria-hidden="true" tabindex="-1"></a>      name <span class="sc">==</span> <span class="st">"Flossie Wong-Staal"</span> <span class="sc">~</span> <span class="dv">2020</span>,</span>
+<span id="cb99-12"><a href="#cb99-12" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> death_year</span>
+<span id="cb99-13"><a href="#cb99-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb99-14"><a href="#cb99-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(death_year), <span class="st">"alive"</span>, <span class="st">"deceased"</span>),</span>
+<span id="cb99-15"><a href="#cb99-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">death_year =</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(death_year), <span class="dv">2021</span>, death_year),</span>
+<span id="cb99-16"><a href="#cb99-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">known_for =</span> <span class="fu">if_else</span>(name <span class="sc">==</span> <span class="st">"Rosalind Franklin"</span>, <span class="st">"understanding of the molecular structures of DNA "</span>, known_for)</span>
+<span id="cb99-17"><a href="#cb99-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb99-18"><a href="#cb99-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb99-19"><a href="#cb99-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">contains</span>(<span class="st">"year"</span>),</span>
+<span id="cb99-20"><a href="#cb99-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"year_type"</span>,</span>
+<span id="cb99-21"><a href="#cb99-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"year"</span></span>
+<span id="cb99-22"><a href="#cb99-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb99-23"><a href="#cb99-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">death_year_fake =</span> <span class="fu">if_else</span>(year <span class="sc">==</span> <span class="dv">2021</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Plot</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scientists_longer, </span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> <span class="fu">fct_reorder</span>(name, <span class="fu">as.numeric</span>(<span class="fu">factor</span>(profession))), <span class="at">group =</span> name, <span class="at">color =</span> profession)) <span class="sc">+</span></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape =</span> death_year_fake), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">linetype =</span> status), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"circle"</span>, <span class="cn">NA</span>)) <span class="sc">+</span></span>
+<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"dashed"</span>, <span class="st">"solid"</span>)) <span class="sc">+</span></span>
+<span id="cb100-7"><a href="#cb100-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb100-8"><a href="#cb100-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="dv">0</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1820</span>, <span class="dv">2020</span>, <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb100-9"><a href="#cb100-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> name, <span class="at">label =</span> known_for), <span class="at">x =</span> <span class="dv">2030</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb100-10"><a href="#cb100-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> profession), <span class="at">x =</span> <span class="dv">1809</span>, <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb100-11"><a href="#cb100-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb100-12"><a href="#cb100-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb100-13"><a href="#cb100-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb100-14"><a href="#cb100-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"10 women in science who changed the world"</span>,</span>
+<span id="cb100-15"><a href="#cb100-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: Discover magazine"</span></span>
+<span id="cb100-16"><a href="#cb100-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb100-17"><a href="#cb100-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(profession <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">space =</span> <span class="st">"free_y"</span>, <span class="at">switch =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb100-18"><a href="#cb100-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb100-19"><a href="#cb100-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">23</span>, <span class="dv">1</span>, <span class="dv">4</span>), <span class="st">"lines"</span>),</span>
+<span id="cb100-20"><a href="#cb100-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb100-21"><a href="#cb100-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb100-22"><a href="#cb100-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">2</span>), <span class="co"># manual hack</span></span>
+<span id="cb100-23"><a href="#cb100-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb100-24"><a href="#cb100-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb100-25"><a href="#cb100-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb100-26"><a href="#cb100-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0f0f0"</span>, <span class="at">color =</span> <span class="st">"white"</span>),</span>
+<span id="cb100-27"><a href="#cb100-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span>
+<span id="cb100-28"><a href="#cb100-28" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2023, Mine Çetinkaya-Rundel</div>   
+    <div class="nav-footer-right">This page is built with 💛 and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>
