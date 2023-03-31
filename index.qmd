@@ -32,14 +32,10 @@ d |>
   mutate(
     Datum = as.Date(Datum)
   ) |>
-  select(-Notes, -Lecturenotes) |> 
+  select(-Notes, -Lecturenotes, -Woche) |> 
   gt() |>
-  fmt_date(Datum, date_style = 31) |>
-  sub_missing(columns = c(Woche, Uhrzeit, Thema, Lektüre, Raum, Fragen), missing_text = "") |>
-  cols_align(
-    align = "center", 
-    columns = c(Woche)
-    ) |>
+  fmt_date(Datum, date_style = 10) |>
+  sub_missing(columns = c(Uhrzeit, Thema, Lektüre, Raum, Fragen), missing_text = "") |>
   cols_align(
     align = "right", 
     columns = c(Datum, Raum, Uhrzeit)
@@ -48,6 +44,7 @@ d |>
     align = "left", 
     columns = c(Thema, Lektüre, Fragen)
     ) |>
+  tab_options(table.font.size = 13) |> 
   tab_style(
     style = cell_borders(
       sides = "right",
@@ -62,13 +59,12 @@ d |>
     columns = c(Raum, Thema, Lektüre, Fragen)
   ) |>
   cols_width(
-    Woche ~ px(70),
-    Datum ~ px(85),
-    Uhrzeit ~ px(80),
-    Raum ~ px(100),
+    Datum ~ px(55),
+    Uhrzeit ~ px(55),
+    Raum ~ px(80),
     Thema ~ px(200),
     Lektüre ~ px(250),
-    Fragen ~ px(200)) # only needed for a column that is nto supposed to have a title on website#|>
+    Fragen ~ px(160)) # only needed for a column that is nto supposed to have a title on website#|>
   # cols_label(
   #   what = ""
   # )

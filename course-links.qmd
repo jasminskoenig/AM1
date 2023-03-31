@@ -2,7 +2,8 @@
 title: "Hilfreiche Links"
 ---
 
-+----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| Universität Hamburg VPN        | 🔗 on [Uni Hamburg VPN](https://www.rrz.uni-hamburg.de/services/netz/vpn.html)                                                                           |
-+----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-
+|                                                                                                           |
+|------------------------------------------------------------------------|
+| Universität Hamburg VPN \| 🔗 on [Uni Hamburg VPN](https://www.rrz.uni-hamburg.de/services/netz/vpn.html) |
+| Weiterleitung Stine Nachrichten \| 🔗 on [Stine Info](https://www.stine.uni-hamburg.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=EXTERNALPAGES&ARGUMENTS=-N000000000000001,-N000387,-Akommunikation#:~:text=Um%20diese%20Weiterleitung%20einzurichten%2C%20klicken,innerhalb%20des%20STiNE%2DWebportals%20tun) |
+| Weiterleitung Uni E-mail \| 🔗 on [Surfmail Weiterleitung](https://www.rrz.uni-hamburg.de/services/e-mail/fuer-studierende/surfmail/filter.html#5275524) <br> Besser regelmäßig checken, Weiterleitung nicht mehr empfohlen (s. Link)  |

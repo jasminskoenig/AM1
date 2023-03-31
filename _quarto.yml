@@ -43,13 +43,13 @@ website:
           - href: index.qmd
             text: Syllabus
           - href: lektuere.qmd
-            text: Lektuere
+            text: Lektüre
           - href: course-links.qmd
             text: Hilfreiche Links
           - href: course-faq.qmd
             text: FAQ
           - href: sprechstunde.qmd
-            text: Sprechstunde
+            text: Kontakt
       - section: "Credits"
         contents:
           - href: studienleistung.qmd
@@ -58,7 +58,7 @@ website:
             text: Hausarbeit
 
   page-footer:
-    right: "This page is built with a template by <a href='https://mine-cr.com/'>Mine Çetinkaya-Rundel</a> with 💛 and [Quarto](https://quarto.org/)."
+    right: "This page is built with a template by <a href='https://mine-cr.com/' style='color:#689295;'>Mine Çetinkaya-Rundel</a> with 💛 and [Quarto](https://quarto.org/)."
     left: "&copy; Copyright 2023, Jasmin Sarah König"
     background: "#CEB7BB" # Rose Quartz
 

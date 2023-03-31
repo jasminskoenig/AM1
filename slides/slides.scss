@@ -8,10 +8,11 @@
 
 $font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
 $font-family-monospace: "Source Code Pro", monospace;
-$presentation-heading-color: #104547; /* Pantone Midnight - Fall 2022 */
+$presentation-heading-color: #689295; 
 $presentation-title-slide-text-align: "left";
-$link-color: #104547;
-$code-color: #104547;
+$presentation-title-slide-text-color: #464a53;
+$link-color: #AF929D;
+$code-color: #689295;
 $code-block-font-size: 0.7em;
 $presentation-h2-font-size: 1.4em !default;
 $presentation-font-size-root: 36px !default;
@@ -33,12 +34,14 @@ details>summary {
   color: #464a53;
 }
 
-#title-slide .author {
+#title-slide .quarto-title-author {
   text-align: center;
+  color: #464a53;
 }
 
 #title-slide .institute {
   text-align: center;
+  color: #464a53;
 }
 
 .small {
@@ -58,6 +61,7 @@ details>summary {
   font-size: 1.2em
 }
 
+
 .reveal .slide .task {
   padding-right: 10px;
   padding-left: 10px;
@@ -65,6 +69,6 @@ details>summary {
   padding-bottom: 3px;
   margin-bottom: 6px;
   margin-top: 6px;
-  border-left: solid 5px #B6738D;
+  border-left: solid 5px #AF929D;
   background-color: #AF929D;
 }

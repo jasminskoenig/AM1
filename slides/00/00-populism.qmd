@@ -1,0 +1,208 @@
+---
+title: Einführung
+subtitle: Vergleichende Empirische Populismusforschung
+title-slide-attributes:
+  data-background-image: images/background.png
+  data-background-size: stretch
+  data-slide-number: none
+format: revealjs
+auto-stretch: false
+---
+
+# Ist das "Du" okay? {.smaller}
+
+# Kennen Lernen
+
+## Vorstellung {.smaller}
+
+**Jasmin**
+
+Doktorandin (Jahr 3/3 😬)
+
+-   Thema: Interaktionen zwischen populistischen Parteien und Gerichten
+
+BA/MA Universität Hamburg
+
+-   Fragen zur Uni, dem BA oder MA hier: Ich kann vermutlich helfen...
+
+Pronomen: sie/ihre
+
+Häufig an einer Kletterwand zu finden 🧗‍♀️
+
+## Vorstellung {.smaller}
+
+**Und ihr?**
+
+-   Name
+
+-   Falls ihr möchtet, gerne Pronomen
+
+-   Semester
+
+-   Was bringt euch in den Kurs?
+
+# Kursinformationen
+
+## Termine {.smaller}
+
+Die Termine in den nächsten vier Wochen fallen aus!
+
+-   11.04. - 02.05.2023
+
+-   ab dem 09.05.2023 sehen wir uns in Person 🥳
+
+Blockseminar am 30.06.2023 von 14.15 - 19.45
+
+-   Verzeiht mir diese gruselige Uhrzeit!
+
+## Kurskommunikation {.smaller}
+
+**Stine E-mails**
+
+-   Wer seine Stine E-mails noch nicht weitergeleitet hat: Do it!!!
+
+**Kurswebsite**
+
+-   Alle Informationen zum Kurs sind auf der Kurswebsite: <https://jasminskoenig.quarto.pub/am1-populismus/>
+
+-   Ziel: Nie wieder etwas suchen
+
+-   Setzt euch am besten direkt einen Stern!
+
+## Kurswebsite
+
+```{=html}
+<iframe width="1200" height="700" src="https://jasminskoenig.quarto.pub/am1-populismus/" title="Website"></iframe>
+```
+## Syllabus {.smaller}
+
+-   Wird laufend geupdated
+
+-   Auf der [Website](https://jasminskoenig.quarto.pub/am1-populismus/)
+
+-   Beispiele, Gruppenarbeiten, Diskussionen
+
+-   Dieser Kurs ist ein kleines Experiment...
+
+. . .
+
+```{=html}
+<p> <br>Wer kann einen Laptop mitbringen?</p>
+```
+. . .
+
+```{=html}
+<p style="color:#689295;"> <br>Was wolltet ihr schon immer mal zu Populismus wissen?</p>
+```
+. . .
+
+```{=html}
+<p style="color:#689295;"><br>Habt ihr noch Themenwünsche?</p>
+```
+## Lektüre {.smaller}
+
+Achtet bitte darauf, ob es weitere Angaben gibt:
+
+-   Aufteilung der Lektüre beispielsweise
+-   Lest die Fragen vorher
+-   Über den [Fragen](https://jasminskoenig.shinyapps.io/01_populism/) stehen auch weitere Anleitungen bei Bedarf
+
+## Lektüre {.smaller visibility="uncounted"}
+
+Auf der [Kurswebsite](https://jasminskoenig.quarto.pub/am1-populismus/):
+
+-   Falls Open Access müsst ihr nur auf den Titel klicken
+
+-   Falls nicht, müsst ihr euch einmal einloggen
+
+    -   klein geschrieben
+
+    -   Umlaute erlaubt
+
+        <div>
+
+        -   **Benutzername**: vorname
+
+            -   Bei Doppelnamen nur der erste Name
+
+        -   **Passwort**: nachname
+
+            -   Bei Doppelnamen nur der letzte Name
+
+        </div>
+
+# Credits
+
+## Anwesenheitspflicht
+
+<div>
+
+Ja, es gibt sie
+
+-   2 x verpassen ist erlaubt
+
+-   Blockseminar = 3 Termine
+
+</div>
+
+## Studienleistung
+
+::: panel-tabset
+## Fragen
+
+-   Verlinkt auf der [Website](https://jasminskoenig.quarto.pub/am1-populismus/)
+
+-   Deadline: Am Montag vor dem Kurs, 12 Uhr Mittags
+
+-   Kurze Antworten
+
+-   2 Wildcards
+
+## Social Media
+
+-   Sucht euch einen populistischen Politiker:in aus, dessen:deren Account ihr die nächsten Monate abboniert
+
+-   Wöchentliche Frage zu dem Account (auf Basis der gelernten Konzepte)
+
+-   Populismus in "freier Wildbahn" analysieren
+
+-   Testlauf
+
+## Blockseminar
+
+-   Entwicklung von eigenen Rechercheideen
+
+-   Aufbau eines Research Designs
+
+-   Eventuell kurze schriftliche Zusammenfassung (tbd)
+
+::: fragment
+```{=html}
+<p style="color:#689295;">Was wollt ihr machen?</p>
+```
+-   Textcodierung
+
+-   Datensatzrecherche
+
+-   Gruppen vs. Einzelarbeit
+:::
+:::
+
+## Prüfungsleistung
+
+::: panel-tabset
+## Hausarbeit
+
+-   Klassische Hausarbeit
+-   Theorie, Argument, Hypothese, Research Design
+-   Keine Datenauswertung erwartet
+    -   Aber ein Vorschlag :)
+
+## Reproduktionsstudie
+
+-   Reproduktion einer existierenden Studie zu Populismus
+-   Hauptsächlich Datenauswertung: Für diejenigen, die das gerne üben möchten
+-   Theorie, Argument, Hypothese und Research Design sind vorgegeben
+:::
+
+# Habt ihr sonst noch Fragen? {.smaller}

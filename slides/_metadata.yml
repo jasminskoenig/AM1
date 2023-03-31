@@ -1,13 +1,13 @@
-institute: "Duke University <br> STA 313 - Spring 2023"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer: "[🔗 vizdata.org](https://vizdata.org/)"
-logo: "../logo.png"
+institute: "Universität Hamburg <br> Regieren in politischen Mehrebenensystemen <br>Aufbaumodul 1"
+author: "Jasmin Sarah König"
+footer: "[🔗 https://jasminskoenig.quarto.pub/am1-populismus/](https://jasminskoenig.quarto.pub/am1-populismus/)"
 format:
   revealjs:
     theme: slides.scss
     transition: fade
     slide-number: true
     chalkboard: true
+    controls: true
 editor: visual
 execute:
   freeze: auto
