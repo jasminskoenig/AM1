@@ -16,6 +16,8 @@ $code-color: #689295;
 $code-block-font-size: 0.7em;
 $presentation-h2-font-size: 1.4em !default;
 $presentation-font-size-root: 36px !default;
+$theme-rose: #AF929D;
+$theme-blue: #689295;
 
 /*-- scss:rules --*/
 
@@ -61,6 +63,9 @@ details>summary {
   font-size: 1.2em
 }
 
+.rose {
+  color: $theme-rose;
+}
 
 .reveal .slide .task {
   padding-right: 10px;
@@ -69,6 +74,17 @@ details>summary {
   padding-bottom: 3px;
   margin-bottom: 6px;
   margin-top: 6px;
+  border-left: solid 5px #464a53;
+  background-color: #eff3f4;
+}
+
+.reveal .slide .quote {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  margin-top: 6px;
   border-left: solid 5px #AF929D;
-  background-color: #AF929D;
+  background-color: #efeaec;
 }

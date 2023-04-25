@@ -1,0 +1,116 @@
+---
+title: Coding Populist Parties
+subtitle: Vergleichende Empirische Populismusforschung
+title-slide-attributes:
+  data-background-image: images/background.png
+  data-background-size: stretch
+  data-slide-number: none
+format: revealjs
+auto-stretch: false
+---
+
+# Coding Populism
+
+## Updates {.smaller}
+
+## Einstieg
+
+## Coding
+
+- Populism is latent
+-   Difficult to code populism in a binary way
+- Measuring the underlying concepts
+  - people vs elite
+  - homogeneous people
+  - manichean distinction
+
+## Meijers et al.
+
+- Europäische Parteien
+- Expert Survey
+  - Annahme: Experten beziehen mehrere Dimensionen in ihre Entscheidung mit ein
+  - Bei Befragung von genügen Expert:innen gleichen sich unterschiedliche Verständnisse aus
+
+::: quote 
+Experts were explicitly instructed to evaluate party positions and party characteristics as apparent in the party leadership during a clearly demarcated timeframe, the spring of 2018
+:::
+
+- 16 Items
+  - 5 Items für Populism
+  - 11 Point Scale
+
+
+::: {.notes}
+- Zu lange Einführung, Introduction nicht auf den Punkt
+:::
+
+## Let's Try It!
+
+
+
+## Meijers et al. Empirie
+
+Regression
+
+Faktoranalyse
+
+Mean
+
+Test Information Function
+
+## Meijers et al. Datensatz
+
+Hier Datensatz einfügen
+
+## Meijers et al. Shiny App
+
+Link zu Shiny App
+
+## Diskussion
+
+::: panel-tabset
+## Vorteile
+::: {.fragment}
+- Multidimensional
+- Continuuous
+- Inkludiert viele europäische Länder
+:::
+
+## Nachteile
+::: {.fragment}
+- Nur Europa
+- Sehr kurzer Zeitraum
+- Unterschiedliches Verständnis
+:::
+:::
+
+## Was können wir codieren?
+
+::: {.fragment}
+- Parteien
+- Reden 
+  - Paragraph
+  - Satz
+- Manifestos
+  - Paragraph
+  - Satz
+- Social Media Content
+- [Policies?]{.rose}
+
+<br>
+
+Keine vollständige Übersicht
+:::
+
+
+## Datensätze
+
+## Vorbereitung
+
+Was ist liberale Demokratie?
+
+::: {.notes}
+- Was könnte eine andere Demokratieform sein?
+:::
+
+Welche Hypothesen für den Zusammenhang von Populismus und liberaler Demokratie habt ihr?

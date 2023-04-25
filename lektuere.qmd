@@ -10,10 +10,19 @@ Sollte das Paper/Kapitel nicht open access sein, müsst ihr erst einen Benutzern
 
 Euer Benutzername ist euer Vorname, das Passwort euer Nachname. Alles klein geschrieben. Solltet ihr Doppelnamen haben, habe ich beim Vornamen nur den ersten Namen, beim Nachnamen nur den letzten Namen genutzt.
 
-## Zusätzliche Lektüreempfehlungen
+## Additional Readings
 
-### Woche 1 - Ideational Approach
+### Week 1 - Ideational Approach
 
-**Mudde, C.** (2004), The Populist Zeitgeist. Government and Opposition, 39: 541-563.
+**Mudde, C.** (2004): The Populist Zeitgeist. Government and Opposition, 39(4), 541-563.
 
-**Abts, K., & Rummens, S.** (2007). Populism versus Democracy. Political Studies, 55(2), 405--424.
+**Canovan, Margaret.** (1999): Trust the People! Populism and the Two Faces of Democracy.
+Political Studies 47(1), 1-16.
+
+**Abts, K., & Rummens, S.** (2007): Populism versus Democracy. Political Studies, 55(2), 405-424.
+
+### Week 2 - Coding Populism
+
+**Zulianello, M.** (2020): Varieties of Populist Parties and Party Systems in Europe: From State-of-the-Art to the Application of a Novel Classification Scheme to 66 Parties in 33 Countries. Government and Opposition, 55(2), 327–347.
+
+
