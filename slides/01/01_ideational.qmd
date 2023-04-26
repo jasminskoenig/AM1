@@ -21,12 +21,21 @@ auto-stretch: false
 
 -   Fallbeispiele suchen
 
+#### Social Media Analyse
+
+- Bisheriger Eindruck?
+
+#### Sprache
+
+- Unterlagen ab jetzt auf Englisch
+- Fragt gerne nach
+
 ## Einstieg
 
 <br> <br>
 
 ::: fragment
-Welche unterschiedlichen Formen von Populismus fallen euch ein?
+Welche Parteien/Bewegungen/Personen fallen euch beim Stichwort Populismus ein?
 :::
 
 ::: fragment
@@ -118,7 +127,7 @@ Gruppenarbeit Plakate
 
 -   Wie wird "das Volk" hier konstruiert?
 
--   Was ist der Exklusionsmechanismus?
+-   Wer wird inkludiert/wer wird exkludiert?
 
 -   Was ist die Host-Ideology?
 
@@ -157,27 +166,72 @@ library(countdown)
 countdown(minutes = 10)
 ```
 
-## Populismus als Demokratieverständnis
+## Vorstellung Gruppenarbeit
 
-Populism is about Democracy and Representation
+<br>
+<br>
 
-Der Wille des Volkes (homogen) ist sofort umzusetzen (einziger Einflussfaktor), Eliten behindern das Volk (böse)
+<iframe src="https://giphy.com/embed/TFIadnqBl872x6v6vV" width="560" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/bobs-burgers-foxtv-bobs-burgers-belchers-TFIadnqBl872x6v6vV"></a></p>
 
-## Das Gegenteil
+## The Opposites
 
+::: fragment
+**What are the opposites of populism?**
+:::
+
+::: fragment
 Elitism
 
+- Idea that experts should lead the country
+- The elite posses more knowledge and supposedly know how to lead a country best
+:::
+
+::: fragment
 Pluralism
 
-## Alternative Ansätze
+- Society consists of many different points of view
+- We need to compromise between different interests
+:::
+
+
+## Sum-Up
+
+<br> <br>
+
+::: fragment
+What is populism in its core about?
+:::
+
+## Sum-Up
+
+<br> <br>
+
+::: fragment
+It is about what democratic representation should look like!
+:::
+
+## Concepts for Empirical Research
+
+- Need to be able to include and exclude cases
+- Derive operationalization
+
+## Alternative Concepts
 
 **Laclau**
 
+- Emancipatory Movement
+- Populism as core of politics
+- Inclusion of marginalized groups in a political process
+- The people as an empty signifier
+
+## Alternative Concepts
+
 **Weyland**
 
-## Konzepte für empirische Forschung
-
-- Klare Inklusion/Exklusion
+- Populism as a strategy
+- Focused on populist leader
+- Unmediated, direct support from people
+- Originally developed in the context of Latin American Populism
 
 ## Vorbereitung kommende Woche
 
