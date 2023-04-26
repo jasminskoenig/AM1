@@ -21,12 +21,6 @@ auto-stretch: false
 
 -   Fallbeispiele suchen
 
-##### Lektüre
-
--   Vorname und Nachname jeweils klein und zusammen geschrieben
-
--   Für nächste Woche bitte lesen 📖
-
 ## Einstieg
 
 <br> <br>
